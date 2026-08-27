@@ -22,11 +22,8 @@ jobs:
       - name: Instalar as dependências
         run: npm install
 
-      - name: Buscar os relatórios novos no portal oficial
-        run: npm run buscar
-
-      - name: Extrair os dados dos PDFs
-        run: npm run extrair
+      - name: Coletar os dados de despesas no portal oficial
+        run: npm run coletar
 
       - name: Salvar os dados atualizados no repositório
         run: |
