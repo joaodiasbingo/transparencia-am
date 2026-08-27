@@ -60,12 +60,23 @@ async function coletarTabela(pagina, url) {
 
 // Tenta clicar no anexo de uma linha específica da tabela (pela posição)
 // e capturar o link do PDF que aparecer (seja em nova aba, seja num modal).
-async function abrirAnexoDaLinha(pagina, indiceLinha) {
+// IMPORTANTE: antes de aceitar o resultado, confere se o texto que apareceu
+// no modal realmente bate com a descrição daquela linha - isso evita pegar
+// por engano o anexo de uma linha anterior que ainda estava na tela.
+async function abrirAnexoDaLinha(pagina, indiceLinha, descricaoEsperada) {
+  // Garante que não sobrou nenhum modal aberto da linha anterior.
+  await pagina.keyboard.press("Escape").catch(() => {});
+  await new Promise((resolve) => setTimeout(resolve, 800));
+  await pagina.evaluate(() => {
+    // Remove qualquer link de PDF que ainda esteja na página, para não
+    // confundir com um novo que ainda vai aparecer.
+    document.querySelectorAll("a[href$='.pdf']").forEach((el) => el.remove());
+  });
+
   const linhas = await pagina.$$("#tbl-padrao tbody tr");
   const linha = linhas[indiceLinha];
   if (!linha) return null;
 
-  // Procura qualquer elemento clicável na última célula (coluna Anexos).
   const celulas = await linha.$$("td");
   const celulaAnexo = celulas[celulas.length - 1];
   if (!celulaAnexo) return null;
@@ -73,29 +84,44 @@ async function abrirAnexoDaLinha(pagina, indiceLinha) {
   const clicavel = await celulaAnexo.$("a, button, span");
   if (!clicavel) return null;
 
-  // Prepara para capturar uma aba nova, caso o clique abra uma.
   const browser = pagina.browser();
   const paginasAntes = await browser.pages();
 
   await clicavel.click().catch(() => {});
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  await new Promise((resolve) => setTimeout(resolve, 1800));
 
   const paginasDepois = await browser.pages();
   let linkPdf = null;
 
   if (paginasDepois.length > paginasAntes.length) {
-    // Abriu uma aba nova - o link do PDF deve ser a própria URL dela.
     const novaAba = paginasDepois[paginasDepois.length - 1];
     linkPdf = novaAba.url();
     await novaAba.close().catch(() => {});
   } else {
-    // Não abriu aba nova - procura um link de PDF que tenha aparecido na mesma página (modal).
-    linkPdf = await pagina.evaluate(() => {
-      const link = document.querySelector("a[href$='.pdf']");
-      return link ? link.href : null;
-    });
-    // Fecha modal se houver (tecla Esc costuma funcionar nesses portais).
+    // Confere se o texto do modal bate com a descrição esperada dessa
+    // linha antes de aceitar o link - se não bater, espera mais um pouco
+    // e tenta de novo (até 3 tentativas).
+    for (let tentativa = 0; tentativa < 3; tentativa++) {
+      const resultado = await pagina.evaluate((descricaoEsperada) => {
+        const link = document.querySelector("a[href$='.pdf']");
+        if (!link) return { encontrado: false };
+        const textoModal = document.body.innerText || "";
+        const bateComALinha = descricaoEsperada
+          ? textoModal.includes(descricaoEsperada)
+          : true;
+        return { encontrado: true, href: link.href, bateComALinha };
+      }, descricaoEsperada);
+
+      if (resultado.encontrado && resultado.bateComALinha) {
+        linkPdf = resultado.href;
+        break;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
+
+    // Fecha o modal antes de seguir para a próxima linha.
     await pagina.keyboard.press("Escape").catch(() => {});
+    await new Promise((resolve) => setTimeout(resolve, 500));
   }
 
   return linkPdf;
@@ -143,7 +169,7 @@ async function main() {
 
       for (const registro of registrosParaAbrir) {
         try {
-          const linkPdf = await abrirAnexoDaLinha(aba, registro._linhaIndice);
+          const linkPdf = await abrirAnexoDaLinha(aba, registro._linhaIndice, registro["Descrição"]);
           if (linkPdf) {
             registro.linkAnexo = linkPdf;
             const resumo = await baixarESomarPdf(linkPdf);
