@@ -140,8 +140,9 @@ const PADROES_LINHA = [
   },
   {
     // Despesas Empenhadas: empenho tipo data empenhado anulado liquidado pago retido liquido a_pagar ...
+    // "Tipo" pode ter mais de uma letra (ex: "O", "OR", "SB"), por isso aceita 1 a 3 letras.
     nome: "despesas_empenhadas",
-    regex: /^\d+\s+[A-Z]\s+\d{2}\/\d{2}\/\d{4}\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/,
+    regex: /^\d+\s+[A-Z]{1,3}\s+\d{2}\/\d{2}\/\d{4}\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/,
   },
 ];
 
