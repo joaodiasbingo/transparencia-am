@@ -127,20 +127,37 @@ async function abrirAnexoDaLinha(pagina, indiceLinha, descricaoEsperada) {
   return linkPdf;
 }
 
-// Reconhece uma linha de despesa de verdade dentro do relatório, no formato:
-// <numero> <data> <valor liquidado> <valor anulado> <descontos> <saldo> ...
-// Isso evita contar duas vezes o mesmo valor (liquidado e saldo costumam
-// ser iguais) e evita contar as linhas de "Total por Dia" (que repetem a
-// soma do dia e inflariam o resultado).
-const REGEX_LINHA_TRANSACAO = /^\d+\s+\d{2}\/\d{2}\/\d{4}\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/;
+// Reconhece linhas de despesa de verdade dentro do relatório. Cada tipo de
+// relatório (Liquidadas, Empenhadas etc.) tem um formato de colunas
+// diferente, então o robô tenta cada padrão conhecido e usa o que
+// encontrar mais linhas - isso evita contar valores repetidos (como
+// "Total por Dia") ou colunas erradas.
+const PADROES_LINHA = [
+  {
+    // Despesas Liquidadas: numero data valor_liquidado valor_anulado descontos saldo ...
+    nome: "despesas_liquidadas",
+    regex: /^\d+\s+\d{2}\/\d{2}\/\d{4}\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/,
+  },
+  {
+    // Despesas Empenhadas: empenho tipo data empenhado anulado liquidado pago retido liquido a_pagar ...
+    nome: "despesas_empenhadas",
+    regex: /^\d+\s+[A-Z]\s+\d{2}\/\d{2}\/\d{4}\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/,
+  },
+];
 
 function extrairValoresDeLinhasEstruturadas(texto) {
-  const valores = [];
-  for (const linha of texto.split(/\r?\n/)) {
-    const encontrado = linha.trim().match(REGEX_LINHA_TRANSACAO);
-    if (encontrado) valores.push(paraNumero(encontrado[1]));
+  let melhor = { nome: null, valores: [] };
+  for (const padrao of PADROES_LINHA) {
+    const valores = [];
+    for (const linha of texto.split(/\r?\n/)) {
+      const encontrado = linha.trim().match(padrao.regex);
+      if (encontrado) valores.push(paraNumero(encontrado[1]));
+    }
+    if (valores.length > melhor.valores.length) {
+      melhor = { nome: padrao.nome, valores };
+    }
   }
-  return valores;
+  return melhor;
 }
 
 async function baixarESomarValores(url) {
@@ -156,18 +173,14 @@ async function baixarESomarValores(url) {
     texto = await resposta.text();
   }
 
-  // Primeiro tenta o jeito preciso: reconhecer linha por linha o formato
-  // "numero data valor valor valor valor ...". Só usa o método aproximado
-  // (somar todo número parecido com dinheiro) se esse formato não bater
-  // com nada no texto - o que indica um relatório de layout diferente.
-  const valoresEstruturados = extrairValoresDeLinhasEstruturadas(texto);
+  const resultado = extrairValoresDeLinhasEstruturadas(texto);
 
-  if (valoresEstruturados.length > 0) {
+  if (resultado.valores.length > 0) {
     return {
-      metodo: "linhas_estruturadas",
-      quantidadeDeValoresEncontrados: valoresEstruturados.length,
+      metodo: resultado.nome,
+      quantidadeDeValoresEncontrados: resultado.valores.length,
       somaAproximada: Number(
-        valoresEstruturados.reduce((soma, n) => soma + n, 0).toFixed(2)
+        resultado.valores.reduce((soma, n) => soma + n, 0).toFixed(2)
       ),
     };
   }
