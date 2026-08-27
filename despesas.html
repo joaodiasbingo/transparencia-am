@@ -184,11 +184,12 @@ async function carregar() {
     if (!resposta.ok) throw new Error("Não foi possível carregar os dados.");
     const registros = await resposta.json();
 
-    // Só usa os registros de "Despesas Liquidadas" com o método de cálculo
-    // preciso (linhas_estruturadas) - os outros ainda estão em calibração.
+    // Usa os registros com método de cálculo preciso já calibrado
+    // (despesas_liquidadas ou despesas_empenhadas) - os outros tipos ainda
+    // estão em calibração.
     const liquidadas = registros.filter(
       (r) =>
-        r.metodoDeCalculo === "linhas_estruturadas" &&
+        r.metodoDeCalculo === "despesas_liquidadas" &&
         (r["Descrição"] || "").includes("Liquidadas")
     );
 
