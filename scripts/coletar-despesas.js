@@ -1,28 +1,41 @@
-// Este robô faz o trabalho em DUAS ETAPAS:
+// Este robô coleta dados de DUAS áreas do Portal da Transparência de
+// Nhamundá: Despesas e Receitas. Para cada área, ele faz o mesmo trabalho
+// em duas etapas:
 //
-// ETAPA 1 - descobrir os relatórios: visita cada página de despesas do
-// portal e lê a tabela de publicações (mês a mês), igual já fazíamos.
+// ETAPA 1 - descobrir os relatórios: visita cada página e lê a tabela de
+// publicações (mês a mês).
 //
-// ETAPA 2 - abrir cada anexo: para cada relatório encontrado, clica no
-// anexo (o link "+1" na tabela) e captura o endereço do PDF de dentro
-// dele. Depois baixa esse PDF e soma os valores em reais que aparecem
-// no texto, para termos um total por relatório.
-//
-// Isso é mais lento (visita centenas de relatórios), então o robô
-// mostra o progresso no log conforme avança.
+// ETAPA 2 - abrir cada anexo: clica no anexo de cada relatório, captura o
+// link do arquivo (PDF ou TXT), baixa e soma os valores em reais.
 
 const fs = require("fs");
 const path = require("path");
 const puppeteer = require("puppeteer");
 const pdfParse = require("pdf-parse");
 
-const URL_BASE = "https://transparencia.diretoriodigital.inf.br/transparencia/pm-nhamunda/despesas/subcategoria";
+const URL_BASE = "https://transparencia.diretoriodigital.inf.br/transparencia/pm-nhamunda";
 
-const SUBCATEGORIAS = [
-  { id: 1461, nome: "listagem-de-despesas" },
-  { id: 1462, nome: "balancete-de-despesas" },
-  { id: 1463, nome: "despesas-pagas" },
-  { id: 3413, nome: "despesas-royalties" },
+// Cada "área" tem seu próprio segmento de URL e sua própria lista de
+// subcategorias descobertas manualmente no portal.
+const AREAS = [
+  {
+    segmento: "despesas",
+    subcategorias: [
+      { id: 1461, nome: "listagem-de-despesas" },
+      { id: 1462, nome: "balancete-de-despesas" },
+      { id: 1463, nome: "despesas-pagas" },
+      { id: 3413, nome: "despesas-royalties" },
+    ],
+  },
+  {
+    segmento: "receitas",
+    subcategorias: [
+      { id: 1464, nome: "listagem-de-receitas" },
+      { id: 1465, nome: "balancete-de-receitas" },
+      { id: 2142, nome: "divida-ativa" },
+      { id: 3412, nome: "receitas-royalties" },
+    ],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
@@ -58,18 +71,10 @@ async function coletarTabela(pagina, url) {
   });
 }
 
-// Tenta clicar no anexo de uma linha específica da tabela (pela posição)
-// e capturar o link do PDF que aparecer (seja em nova aba, seja num modal).
-// IMPORTANTE: antes de aceitar o resultado, confere se o texto que apareceu
-// no modal realmente bate com a descrição daquela linha - isso evita pegar
-// por engano o anexo de uma linha anterior que ainda estava na tela.
 async function abrirAnexoDaLinha(pagina, indiceLinha, descricaoEsperada) {
-  // Garante que não sobrou nenhum modal aberto da linha anterior.
   await pagina.keyboard.press("Escape").catch(() => {});
   await new Promise((resolve) => setTimeout(resolve, 800));
   await pagina.evaluate(() => {
-    // Remove qualquer link de PDF que ainda esteja na página, para não
-    // confundir com um novo que ainda vai aparecer.
     document.querySelectorAll("a[href$='.pdf']").forEach((el) => el.remove());
   });
 
@@ -91,16 +96,13 @@ async function abrirAnexoDaLinha(pagina, indiceLinha, descricaoEsperada) {
   await new Promise((resolve) => setTimeout(resolve, 1800));
 
   const paginasDepois = await browser.pages();
-  let linkPdf = null;
+  let linkArquivo = null;
 
   if (paginasDepois.length > paginasAntes.length) {
     const novaAba = paginasDepois[paginasDepois.length - 1];
-    linkPdf = novaAba.url();
+    linkArquivo = novaAba.url();
     await novaAba.close().catch(() => {});
   } else {
-    // Confere se o texto do modal bate com a descrição esperada dessa
-    // linha antes de aceitar o link - se não bater, espera mais um pouco
-    // e tenta de novo (até 3 tentativas).
     for (let tentativa = 0; tentativa < 3; tentativa++) {
       const resultado = await pagina.evaluate((descricaoEsperada) => {
         const link = document.querySelector("a[href$='.pdf']");
@@ -113,25 +115,22 @@ async function abrirAnexoDaLinha(pagina, indiceLinha, descricaoEsperada) {
       }, descricaoEsperada);
 
       if (resultado.encontrado && resultado.bateComALinha) {
-        linkPdf = resultado.href;
+        linkArquivo = resultado.href;
         break;
       }
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
 
-    // Fecha o modal antes de seguir para a próxima linha.
     await pagina.keyboard.press("Escape").catch(() => {});
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
 
-  return linkPdf;
+  return linkArquivo;
 }
 
-// Reconhece linhas de despesa de verdade dentro do relatório. Cada tipo de
-// relatório (Liquidadas, Empenhadas etc.) tem um formato de colunas
-// diferente, então o robô tenta cada padrão conhecido e usa o que
-// encontrar mais linhas - isso evita contar valores repetidos (como
-// "Total por Dia") ou colunas erradas.
+// Reconhece linhas de valores de verdade dentro dos relatórios. Cada tipo
+// de relatório tem um formato de colunas diferente, então o robô tenta
+// cada padrão conhecido e usa o que encontrar mais linhas.
 const PADROES_LINHA = [
   {
     // Despesas Liquidadas: numero data valor_liquidado valor_anulado descontos saldo ...
@@ -140,7 +139,6 @@ const PADROES_LINHA = [
   },
   {
     // Despesas Empenhadas: empenho tipo data empenhado anulado liquidado pago retido liquido a_pagar ...
-    // "Tipo" pode ter mais de uma letra (ex: "O", "OR", "SB"), por isso aceita 1 a 3 letras.
     nome: "despesas_empenhadas",
     regex: /^\d+\s+[A-Z]{1,3}\s+\d{2}\/\d{2}\/\d{4}\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/,
   },
@@ -195,7 +193,7 @@ async function baixarESomarValores(url) {
 }
 
 async function main() {
-  console.log("Iniciando coleta detalhada de despesas (com anexos)...");
+  console.log("Iniciando coleta detalhada (Despesas e Receitas)...");
 
   const browser = await puppeteer.launch({
     headless: "new",
@@ -204,50 +202,48 @@ async function main() {
 
   fs.mkdirSync(PASTA_SAIDA, { recursive: true });
 
-  for (const subcategoria of SUBCATEGORIAS) {
-    const url = `${URL_BASE}/${subcategoria.id}`;
-    console.log(`\nColetando: ${subcategoria.nome} (${url})`);
+  for (const area of AREAS) {
+    for (const subcategoria of area.subcategorias) {
+      const url = `${URL_BASE}/${area.segmento}/subcategoria/${subcategoria.id}`;
+      console.log(`\nColetando [${area.segmento}]: ${subcategoria.nome} (${url})`);
 
-    const aba = await browser.newPage();
-    let registros = [];
+      const aba = await browser.newPage();
+      let registros = [];
 
-    try {
-      registros = await coletarTabela(aba, url);
-      console.log(`  -> ${registros.length} relatório(s) encontrado(s) na tabela`);
+      try {
+        registros = await coletarTabela(aba, url);
+        console.log(`  -> ${registros.length} relatório(s) encontrado(s) na tabela`);
 
-      // Limita a quantidade de anexos abertos por execução, para não
-      // demorar demais nem sobrecarregar o portal. Pega os mais recentes
-      // primeiro (assume-se que a tabela já vem ordenada do mais novo pro
-      // mais antigo, como vimos no teste manual).
-      const LIMITE_ANEXOS_POR_EXECUCAO = 20;
-      const registrosParaAbrir = registros.slice(0, LIMITE_ANEXOS_POR_EXECUCAO);
+        const LIMITE_ANEXOS_POR_EXECUCAO = 20;
+        const registrosParaAbrir = registros.slice(0, LIMITE_ANEXOS_POR_EXECUCAO);
 
-      for (const registro of registrosParaAbrir) {
-        try {
-          const linkPdf = await abrirAnexoDaLinha(aba, registro._linhaIndice, registro["Descrição"]);
-          if (linkPdf) {
-            registro.linkAnexo = linkPdf;
-            const resumo = await baixarESomarValores(linkPdf);
-            registro.somaAproximada = resumo.somaAproximada;
-            registro.quantidadeDeValoresEncontrados = resumo.quantidadeDeValoresEncontrados;
-            registro.metodoDeCalculo = resumo.metodo;
-            console.log(`    Anexo lido: ${linkPdf} (soma: ${resumo.somaAproximada}, método: ${resumo.metodo})`);
-          } else {
-            console.log(`    Linha ${registro._linhaIndice}: não encontrei link de anexo.`);
+        for (const registro of registrosParaAbrir) {
+          try {
+            const linkArquivo = await abrirAnexoDaLinha(aba, registro._linhaIndice, registro["Descrição"]);
+            if (linkArquivo) {
+              registro.linkAnexo = linkArquivo;
+              const resumo = await baixarESomarValores(linkArquivo);
+              registro.somaAproximada = resumo.somaAproximada;
+              registro.quantidadeDeValoresEncontrados = resumo.quantidadeDeValoresEncontrados;
+              registro.metodoDeCalculo = resumo.metodo;
+              console.log(`    Anexo lido: ${linkArquivo} (soma: ${resumo.somaAproximada}, método: ${resumo.metodo})`);
+            } else {
+              console.log(`    Linha ${registro._linhaIndice}: não encontrei link de anexo.`);
+            }
+          } catch (erro) {
+            console.log(`    Linha ${registro._linhaIndice}: erro ao abrir anexo (${erro.message})`);
           }
-        } catch (erro) {
-          console.log(`    Linha ${registro._linhaIndice}: erro ao abrir anexo (${erro.message})`);
         }
+      } catch (erro) {
+        console.error(`  Erro ao coletar ${subcategoria.nome}: ${erro.message}`);
+      } finally {
+        await aba.close();
       }
-    } catch (erro) {
-      console.error(`  Erro ao coletar ${subcategoria.nome}: ${erro.message}`);
-    } finally {
-      await aba.close();
-    }
 
-    const arquivoSaida = path.join(PASTA_SAIDA, `despesas-${subcategoria.nome}.json`);
-    fs.writeFileSync(arquivoSaida, JSON.stringify(registros, null, 2), "utf-8");
-    console.log(`  Salvo em ${arquivoSaida}`);
+      const arquivoSaida = path.join(PASTA_SAIDA, `${area.segmento}-${subcategoria.nome}.json`);
+      fs.writeFileSync(arquivoSaida, JSON.stringify(registros, null, 2), "utf-8");
+      console.log(`  Salvo em ${arquivoSaida}`);
+    }
   }
 
   await browser.close();
