@@ -1,16 +1,20 @@
-// Este script abre cada página de despesas do Portal da Transparência de
-// Nhamundá (usando um navegador automatizado, o Puppeteer) e le a TABELA de
-// dados diretamente da página - sem precisar baixar nem interpretar PDF.
-// E mais confiavel do que a versao anterior porque os dados ja vem
-// organizados em colunas pelo proprio portal.
+// Este robô faz o trabalho em DUAS ETAPAS:
 //
-// Para adicionar um novo tipo de despesa (Empenhos, Liquidacoes, Pagamentos
-// etc.), basta acrescentar um novo item na lista SUBCATEGORIAS abaixo, com
-// o numero encontrado no endereco da pagina correspondente.
+// ETAPA 1 - descobrir os relatórios: visita cada página de despesas do
+// portal e lê a tabela de publicações (mês a mês), igual já fazíamos.
+//
+// ETAPA 2 - abrir cada anexo: para cada relatório encontrado, clica no
+// anexo (o link "+1" na tabela) e captura o endereço do PDF de dentro
+// dele. Depois baixa esse PDF e soma os valores em reais que aparecem
+// no texto, para termos um total por relatório.
+//
+// Isso é mais lento (visita centenas de relatórios), então o robô
+// mostra o progresso no log conforme avança.
 
 const fs = require("fs");
 const path = require("path");
 const puppeteer = require("puppeteer");
+const pdfParse = require("pdf-parse");
 
 const URL_BASE = "https://transparencia.diretoriodigital.inf.br/transparencia/pm-nhamunda/despesas/subcategoria";
 
@@ -22,50 +26,95 @@ const SUBCATEGORIAS = [
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
+const REGEX_VALOR = /\d{1,3}(?:\.\d{3})*,\d{2}/g;
+
+function paraNumero(valorTexto) {
+  return Number(valorTexto.replace(/\./g, "").replace(",", "."));
+}
 
 async function coletarTabela(pagina, url) {
   await pagina.goto(url, { waitUntil: "networkidle2", timeout: 60000 });
-
-  // Da um tempo para a tabela carregar os dados via JavaScript.
   try {
     await pagina.waitForSelector("#tbl-padrao tbody tr", { timeout: 15000 });
   } catch {
     console.log("  Nenhuma linha apareceu na tabela dentro do tempo esperado.");
   }
-
-  // Espera extra de seguranca, caso os dados ainda estejam carregando aos poucos.
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
-  const dados = await pagina.evaluate(() => {
+  return pagina.evaluate(() => {
     const tabela = document.querySelector("#tbl-padrao");
-    if (!tabela) return { cabecalhos: [], linhas: [] };
-
-    const cabecalhos = Array.from(tabela.querySelectorAll("thead th")).map(
-      (th) => th.textContent.trim()
+    if (!tabela) return [];
+    const cabecalhos = Array.from(tabela.querySelectorAll("thead th")).map((th) =>
+      th.textContent.trim()
     );
-
-    const linhas = Array.from(tabela.querySelectorAll("tbody tr")).map((tr) =>
-      Array.from(tr.querySelectorAll("td")).map((td) => td.textContent.trim())
-    );
-
-    return { cabecalhos, linhas };
-  });
-
-  // Transforma cada linha da tabela em um objeto (coluna -> valor),
-  // usando os cabecalhos como nome de cada campo.
-  const registros = dados.linhas.map((linha) => {
-    const registro = {};
-    dados.cabecalhos.forEach((cabecalho, indice) => {
-      registro[cabecalho || `coluna_${indice}`] = linha[indice] || "";
+    return Array.from(tabela.querySelectorAll("tbody tr")).map((tr, indiceLinha) => {
+      const celulas = Array.from(tr.querySelectorAll("td"));
+      const registro = { _linhaIndice: indiceLinha };
+      cabecalhos.forEach((cabecalho, i) => {
+        registro[cabecalho || `coluna_${i}`] = celulas[i] ? celulas[i].textContent.trim() : "";
+      });
+      return registro;
     });
-    return registro;
   });
+}
 
-  return registros;
+// Tenta clicar no anexo de uma linha específica da tabela (pela posição)
+// e capturar o link do PDF que aparecer (seja em nova aba, seja num modal).
+async function abrirAnexoDaLinha(pagina, indiceLinha) {
+  const linhas = await pagina.$$("#tbl-padrao tbody tr");
+  const linha = linhas[indiceLinha];
+  if (!linha) return null;
+
+  // Procura qualquer elemento clicável na última célula (coluna Anexos).
+  const celulas = await linha.$$("td");
+  const celulaAnexo = celulas[celulas.length - 1];
+  if (!celulaAnexo) return null;
+
+  const clicavel = await celulaAnexo.$("a, button, span");
+  if (!clicavel) return null;
+
+  // Prepara para capturar uma aba nova, caso o clique abra uma.
+  const browser = pagina.browser();
+  const paginasAntes = await browser.pages();
+
+  await clicavel.click().catch(() => {});
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+
+  const paginasDepois = await browser.pages();
+  let linkPdf = null;
+
+  if (paginasDepois.length > paginasAntes.length) {
+    // Abriu uma aba nova - o link do PDF deve ser a própria URL dela.
+    const novaAba = paginasDepois[paginasDepois.length - 1];
+    linkPdf = novaAba.url();
+    await novaAba.close().catch(() => {});
+  } else {
+    // Não abriu aba nova - procura um link de PDF que tenha aparecido na mesma página (modal).
+    linkPdf = await pagina.evaluate(() => {
+      const link = document.querySelector("a[href$='.pdf']");
+      return link ? link.href : null;
+    });
+    // Fecha modal se houver (tecla Esc costuma funcionar nesses portais).
+    await pagina.keyboard.press("Escape").catch(() => {});
+  }
+
+  return linkPdf;
+}
+
+async function baixarESomarPdf(url) {
+  const resposta = await fetch(url);
+  if (!resposta.ok) throw new Error(`Falha ao baixar (status ${resposta.status})`);
+  const buffer = Buffer.from(await resposta.arrayBuffer());
+  const dados = await pdfParse(buffer);
+  const valores = (dados.text.match(REGEX_VALOR) || []).map(paraNumero);
+  return {
+    quantidadeDeValoresEncontrados: valores.length,
+    somaAproximada: Number(valores.reduce((soma, n) => soma + n, 0).toFixed(2)),
+  };
 }
 
 async function main() {
-  console.log("Iniciando coleta de dados de despesas...");
+  console.log("Iniciando coleta detalhada de despesas (com anexos)...");
 
   const browser = await puppeteer.launch({
     headless: "new",
@@ -83,7 +132,31 @@ async function main() {
 
     try {
       registros = await coletarTabela(aba, url);
-      console.log(`  -> ${registros.length} registro(s) encontrado(s)`);
+      console.log(`  -> ${registros.length} relatório(s) encontrado(s) na tabela`);
+
+      // Limita a quantidade de anexos abertos por execução, para não
+      // demorar demais nem sobrecarregar o portal. Pega os mais recentes
+      // primeiro (assume-se que a tabela já vem ordenada do mais novo pro
+      // mais antigo, como vimos no teste manual).
+      const LIMITE_ANEXOS_POR_EXECUCAO = 20;
+      const registrosParaAbrir = registros.slice(0, LIMITE_ANEXOS_POR_EXECUCAO);
+
+      for (const registro of registrosParaAbrir) {
+        try {
+          const linkPdf = await abrirAnexoDaLinha(aba, registro._linhaIndice);
+          if (linkPdf) {
+            registro.linkAnexo = linkPdf;
+            const resumo = await baixarESomarPdf(linkPdf);
+            registro.somaAproximada = resumo.somaAproximada;
+            registro.quantidadeDeValoresEncontrados = resumo.quantidadeDeValoresEncontrados;
+            console.log(`    Anexo lido: ${linkPdf} (soma aprox: ${resumo.somaAproximada})`);
+          } else {
+            console.log(`    Linha ${registro._linhaIndice}: não encontrei link de anexo.`);
+          }
+        } catch (erro) {
+          console.log(`    Linha ${registro._linhaIndice}: erro ao abrir anexo (${erro.message})`);
+        }
+      }
     } catch (erro) {
       console.error(`  Erro ao coletar ${subcategoria.nome}: ${erro.message}`);
     } finally {
@@ -96,7 +169,7 @@ async function main() {
   }
 
   await browser.close();
-  console.log("\nColeta concluida.");
+  console.log("\nColeta concluída.");
 }
 
 main();
