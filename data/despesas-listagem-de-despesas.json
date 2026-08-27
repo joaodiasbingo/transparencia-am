@@ -14,8 +14,9 @@
     "Fonte de Recurso da Receita": "-",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-9fka4b.txt",
-    "somaAproximada": 163476351.12,
-    "quantidadeDeValoresEncontrados": 3932
+    "somaAproximada": 20434543.89,
+    "quantidadeDeValoresEncontrados": 960,
+    "metodoDeCalculo": "linhas_estruturadas"
   },
   {
     "_linhaIndice": 1,
@@ -33,7 +34,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-VizQwO.txt",
     "somaAproximada": 162894431.68,
-    "quantidadeDeValoresEncontrados": 6587
+    "quantidadeDeValoresEncontrados": 6587,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 2,
@@ -51,7 +53,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103405-sjJ4G2.txt",
     "somaAproximada": 7861221.3,
-    "quantidadeDeValoresEncontrados": 211
+    "quantidadeDeValoresEncontrados": 211,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 3,
@@ -69,7 +72,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/05/despesas/listagem-despesas/edition20260729112833-bZgqfl.txt",
     "somaAproximada": 9522692.7,
-    "quantidadeDeValoresEncontrados": 217
+    "quantidadeDeValoresEncontrados": 217,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 4,
@@ -87,7 +91,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/05/despesas/listagem-despesas/edition20260729112430-K4Zpod.txt",
     "somaAproximada": 108368739.28,
-    "quantidadeDeValoresEncontrados": 5250
+    "quantidadeDeValoresEncontrados": 5250,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 5,
@@ -104,8 +109,9 @@
     "Fonte de Recurso da Receita": "-",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/05/despesas/listagem-despesas/edition20260729112429-VbKVFv.txt",
-    "somaAproximada": 108880691.68,
-    "quantidadeDeValoresEncontrados": 3172
+    "somaAproximada": 13610086.46,
+    "quantidadeDeValoresEncontrados": 771,
+    "metodoDeCalculo": "linhas_estruturadas"
   },
   {
     "_linhaIndice": 6,
@@ -122,8 +128,9 @@
     "Fonte de Recurso da Receita": "-",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/04/despesas/listagem-despesas/edition20260622105912-39cbq4.txt",
-    "somaAproximada": 103457838.88,
-    "quantidadeDeValoresEncontrados": 3228
+    "somaAproximada": 12932229.86,
+    "quantidadeDeValoresEncontrados": 785,
+    "metodoDeCalculo": "linhas_estruturadas"
   },
   {
     "_linhaIndice": 7,
@@ -141,7 +148,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/04/despesas/listagem-despesas/edition20260622105911-zKLpbD.txt",
     "somaAproximada": 148692037.64,
-    "quantidadeDeValoresEncontrados": 3885
+    "quantidadeDeValoresEncontrados": 3885,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 8,
@@ -159,7 +167,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/04/despesas/listagem-despesas/edition20260622105910-vOztuS.txt",
     "somaAproximada": 25852288.96,
-    "quantidadeDeValoresEncontrados": 792
+    "quantidadeDeValoresEncontrados": 792,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 9,
@@ -177,7 +186,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/04/despesas/listagem-despesas/edition20260622105909-zlVKk6.txt",
     "somaAproximada": 8459080.7,
-    "quantidadeDeValoresEncontrados": 165
+    "quantidadeDeValoresEncontrados": 165,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 10,
@@ -195,7 +205,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/03/despesas/listagem-despesas/edition20260609141006-pTZIVo.txt",
     "somaAproximada": 9226997.4,
-    "quantidadeDeValoresEncontrados": 161
+    "quantidadeDeValoresEncontrados": 161,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 11,
@@ -212,8 +223,9 @@
     "Fonte de Recurso da Receita": "-",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/03/despesas/listagem-despesas/edition20260609140804-WUJE3C.txt",
-    "somaAproximada": 119260584.72,
-    "quantidadeDeValoresEncontrados": 3596
+    "somaAproximada": 14907573.09,
+    "quantidadeDeValoresEncontrados": 875,
+    "metodoDeCalculo": "linhas_estruturadas"
   },
   {
     "_linhaIndice": 12,
@@ -231,7 +243,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/03/despesas/listagem-despesas/edition20260609140803-PI9dPS.txt",
     "somaAproximada": 93435816.12,
-    "quantidadeDeValoresEncontrados": 5142
+    "quantidadeDeValoresEncontrados": 5142,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 13,
@@ -249,7 +262,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/02/despesas/listagem-despesas/edition20260514152606-tTOUlp.txt",
     "somaAproximada": 67648907.2,
-    "quantidadeDeValoresEncontrados": 4074
+    "quantidadeDeValoresEncontrados": 4074,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 14,
@@ -266,8 +280,9 @@
     "Fonte de Recurso da Receita": "-",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/02/despesas/listagem-despesas/edition20260514094504-ZUA6bt.txt",
-    "somaAproximada": 90542736.56,
-    "quantidadeDeValoresEncontrados": 2896
+    "somaAproximada": 11317842.07,
+    "quantidadeDeValoresEncontrados": 704,
+    "metodoDeCalculo": "linhas_estruturadas"
   },
   {
     "_linhaIndice": 15,
@@ -285,7 +300,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/02/despesas/listagem-despesas/edition20260514094503-0SO2RE.txt",
     "somaAproximada": 8393531.2,
-    "quantidadeDeValoresEncontrados": 116
+    "quantidadeDeValoresEncontrados": 116,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 16,
@@ -303,7 +319,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/01/despesas/listagem-despesas/edition20260514152555-gz7Ttg.txt",
     "somaAproximada": 75840977.68,
-    "quantidadeDeValoresEncontrados": 4518
+    "quantidadeDeValoresEncontrados": 4518,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 17,
@@ -320,8 +337,9 @@
     "Fonte de Recurso da Receita": "-",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/01/despesas/listagem-despesas/edition20260514090112-pyBPao.txt",
-    "somaAproximada": 94013301.28,
-    "quantidadeDeValoresEncontrados": 3320
+    "somaAproximada": 11751662.66,
+    "quantidadeDeValoresEncontrados": 807,
+    "metodoDeCalculo": "linhas_estruturadas"
   },
   {
     "_linhaIndice": 18,
@@ -339,7 +357,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/01/despesas/listagem-despesas/edition20260514090111-L4dJS4.txt",
     "somaAproximada": 9035157.3,
-    "quantidadeDeValoresEncontrados": 147
+    "quantidadeDeValoresEncontrados": 147,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 19,
@@ -357,7 +376,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/12/despesas/listagem-despesas/edition20260410103335-ghClep.txt",
     "somaAproximada": 14088364.4,
-    "quantidadeDeValoresEncontrados": 172
+    "quantidadeDeValoresEncontrados": 172,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 20,
