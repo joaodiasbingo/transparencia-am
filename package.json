@@ -1,0 +1,14 @@
+{
+  "name": "transparencia-am",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Automacao de coleta e leitura dos relatorios de despesas da Prefeitura de Nhamunda",
+  "scripts": {
+    "buscar": "node scripts/buscar-relatorios.js",
+    "extrair": "node scripts/extrair-despesas.js"
+  },
+  "dependencies": {
+    "puppeteer": "^23.9.0",
+    "pdf-parse": "^1.1.1"
+  }
+}
