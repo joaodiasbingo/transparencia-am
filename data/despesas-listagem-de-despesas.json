@@ -1,5 +1,6 @@
 [
   {
+    "_linhaIndice": 0,
     "Exercício": "2026",
     "Mês": "Junho",
     "Descrição": "Listagem de Despesas Liquidadas - Junho de 2026",
@@ -11,9 +12,13 @@
     "Ficha da Receita": "3972, 4150, 4167, 4168, 3947, 3948, 4271, 4272, 4273, 4282, 4283, 4284, 4285, 4286, 4287, 4288, 4289, 4290, 3683, 4291, 4292, 4293, 4294, 4295, 4296, 3965, 4298, 4300, 4301, 4302, 4276, 4277, 4278, 4279, 4158, 4303, 4280, 4281, 4304, 4305,  ...",
     "Especificação da Receita": "1.700.0000 10.301.0011 2.022 101 4.4.90.52.48.00.00.00 L F DA S LIMA EIRELI 02.006, 1.540.0000 12.361.0062 2.097 160 3.3.90.36.48.00.00.00 JOCIVAN ANDRADE ALMEIDA 02.009, 1.500.0000 13.392.0071 2.039 173 3.3.90.36.99.00.00.00 AURIENE MARQUE ...",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 1,
     "Exercício": "2026",
     "Mês": "Junho",
     "Descrição": "Listagem de Despesas Empenhadas - Junho de 2026",
@@ -25,9 +30,13 @@
     "Ficha da Receita": "0000, 1002, 1001",
     "Especificação da Receita": "2.008 33 33903999000000 PUBLICIDADE E, 2.017 67 33903099000000 NATANAEL DOS, 2.075 266 33903009000000 FIGUEIREDO FARMA, 2.075 266 33903009000000 M. L. DE AZEVEDO, 2.075 266 33903016000000 COMERCIO DE, 2.013 54 33903999000000 NUNES GOLGO, 2. ...",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 2,
     "Exercício": "2026",
     "Mês": "Junho",
     "Descrição": "Listagem de Despesa Extra Liquidada - Junho de 2026",
@@ -39,9 +48,13 @@
     "Ficha da Receita": "0000, 2883, 2892, 2893, 2898, 2900, 2903, 2905, 2906, 2904, 2604, 2887, 2888",
     "Especificação da Receita": "Transferências do FUNDEB - Complementação da União - VAAT, CRÉDITOS A RECEBER POR REEMBOLSO DE SALÁRIO, Transf. de Rec. do SUS provenientes do Gov. Federal - Bloco de Manutenção, Recursos não Vinculados de Impostos",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 3,
     "Exercício": "2026",
     "Mês": "Maio",
     "Descrição": "Listagem de Despesa Extra Emitida-Liquidada - Maio de 2026",
@@ -53,9 +66,13 @@
     "Ficha da Receita": "0000, 2856, 2857, 2858, 2862, 2870, 2871, 2879, 1002, 2875, 2876",
     "Especificação da Receita": "Transferências do FUNDEB - Complementação da União - VAAT, CRÉDITOS A RECEBER POR REEMBOLSO DE SALÁRIO, Identificação das despesas com ações e serviços públicos de saúde, Recursos não Vinculados de Impostos",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 4,
     "Exercício": "2026",
     "Mês": "Maio",
     "Descrição": "Listagem de Despesas Empenhadas - Maio de 2026",
@@ -67,9 +84,13 @@
     "Ficha da Receita": "1002, 0000, 1001, 1070",
     "Especificação da Receita": "2.022 99 33903943000000 AMAZONAS ENERGIA, 2.022 99 33903944000000 MANAUS AMBIENTAL, 2.024 113 33904899010000 MARIA ZINEIA, 2.024 113 33904899010000 JUCICARMEM RAMOS, 2.024 113 33904899010000 MARIA IZABEL DE, 2.024 113 33904899020000 ALCIONE ...",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 5,
     "Exercício": "2026",
     "Mês": "Maio",
     "Descrição": "Listagem de Despesas Liquidadas - Maio de 2026",
@@ -81,9 +102,13 @@
     "Ficha da Receita": "3291, 3292, 3294, 3299, 3300, 3301, 3302, 3303, 3304, 3305, 3306, 3307, 3309, 3308, 3310, 3311, 3359, 3362, 3363, 3364, 3365, 3366, 3367, 3368, 3369, 3370, 3371, 3372, 3373, 3374, 3312, 3375, 3376, 3377, 3378, 3379, 3380, 3381, 3398, 3447,  ...",
     "Especificação da Receita": "1.500.0000 13.392.0071 2.039 173 3.3.90.36.99.00.29.00 SUELLEN ALVES DE OLIVEIRA CASAS 02.010, 1.500.0000 04.122.0011 2.003 4 3.3.90.36.23.00.00.00 KEROLAYNE COSTA LEITE 02.001, 1.500.0000 04.122.0011 2.008 33 3.3.90.39.99.00.00.00 RM SERVI ...",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 6,
     "Exercício": "2026",
     "Mês": "Abril",
     "Descrição": "Listagem de Despesas Liquidadas - Abril de 2026",
@@ -95,9 +120,13 @@
     "Ficha da Receita": "2462, 2457, 2456, 2454, 2453, 2452, 2451, 2450, 2482, 2481, 2480, 2479, 2478, 2403, 2476, 2475, 2474, 2472, 2471, 2470, 2467, 2466, 2465, 2464, 2502, 2501, 2500, 2495, 2492, 2491, 2509, 2441, 2369, 2418, 2412, 2458, 2527, 2526, 2525, 2540,  ...",
     "Especificação da Receita": "1.500.0000 20.605.0011 2.017 68 3.3.90.36.23.00.00.00 MELISSIA BIANCA SOUZA ELEUTERIO 02.004, 1.500.0000 06.182.0011 2.007 210 3.3.90.36.23.00.00.00 RAIANE SOARES MENDONÇA 02.014, 1.500.0000 04.122.0011 2.008 31 3.3.90.30.16.00.00.00 L F DA ...",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 7,
     "Exercício": "2026",
     "Mês": "Abril",
     "Descrição": "Listagem de Despesas Empenhadas com Histórico - Abril de 2026",
@@ -109,9 +138,13 @@
     "Ficha da Receita": "2404, 123, 2405, 122, 2406, 301, 2407, 2408, 451, 2409, 2410, 244, 2411, 2026, 2412, 2418, 361, 2441, 2450, 2451, 2452, 2453, 2454, 2455, 2456, 2457, 182, 2458, 2459, 2460, 2461, 2462, 605, 2464, 2465, 2466, 2467, 2470, 2471, 2472, 2474, 24 ...",
     "Especificação da Receita": "E 0/0 01/04, 11 1.500.0000 2013 54 3.3.90.39.99.23. CAIXA ECONOMICA FEDERAL, O 0/0 01/04, 11 1.500.0000 2008 33 3.3.90.39.43.00. AMAZONAS ENERGIA S.A, 11 1.500.1002 2022 97 3.3.90.30.09.00. M. L. DE AZEVEDO, 11 1.500.0000 2005 13 3.3.90.39. ...",
     "Fonte de Recurso da Receita": "02659355207",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 8,
     "Exercício": "2026",
     "Mês": "Abril",
     "Descrição": "Listagem de Despesas Empenhadas - Abril de 2026",
@@ -123,9 +156,13 @@
     "Ficha da Receita": "0000, 1002, 1001, 1070",
     "Especificação da Receita": "1.033-2 2462/2026 2.017 68 02004 33903600000000 MELISSIA BIANCA SOUZA ELEUTERIO, 1.030-8 2457/2026 2.007 210 02014 33903600000000 RAIANE SOARES MENDONÇA, 3.318-9 2454/2026 2.075 269 05001 33904800000000 IGOR MEDEIROS BARBOSA, 3.318-9 2453/2 ...",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 9,
     "Exercício": "2026",
     "Mês": "Abril",
     "Descrição": "Listagem de Despesa Extra Emitida-Liquidada - Abril de 2026",
@@ -137,9 +174,13 @@
     "Ficha da Receita": "0000, 1001, 1002, 1070",
     "Especificação da Receita": "Transf. de Rec. do SUS provenientes do Gov. Federal - Bloco de Manutenção, Identificação das despesas com manutenção e desenvolvimento do ensino, Identificação das despesas com ações e serviços públicos de saúde, Identificação do percentual ...",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 10,
     "Exercício": "2026",
     "Mês": "Março",
     "Descrição": "Listagem de Despesa Extra Liquidada - Março de 2026",
@@ -151,9 +192,13 @@
     "Ficha da Receita": "-",
     "Especificação da Receita": "-",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 11,
     "Exercício": "2026",
     "Mês": "Março",
     "Descrição": "Listagem de Despesas Liquidadas - Março de 2026",
@@ -165,9 +210,13 @@
     "Ficha da Receita": "-",
     "Especificação da Receita": "-",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 12,
     "Exercício": "2026",
     "Mês": "Março",
     "Descrição": "Listagem de Despesas Empenhadas - Março de 2026",
@@ -179,9 +228,13 @@
     "Ficha da Receita": "-",
     "Especificação da Receita": "-",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 13,
     "Exercício": "2026",
     "Mês": "Fevereiro",
     "Descrição": "Listagem de Despesas Empenhadas - Fevereiro de 2026",
@@ -193,9 +246,13 @@
     "Ficha da Receita": "-",
     "Especificação da Receita": "-",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 14,
     "Exercício": "2026",
     "Mês": "Fevereiro",
     "Descrição": "Listagem de Despesas Liquidadas - Fevereiro de 2026",
@@ -207,9 +264,13 @@
     "Ficha da Receita": "-",
     "Especificação da Receita": "-",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 15,
     "Exercício": "2026",
     "Mês": "Fevereiro",
     "Descrição": "Listagem de Despesas Extra Liquidadas - Fevereiro de 2026",
@@ -221,9 +282,13 @@
     "Ficha da Receita": "-",
     "Especificação da Receita": "-",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 16,
     "Exercício": "2026",
     "Mês": "Janeiro",
     "Descrição": "Listagem de Despesas Empenhadas - Janeiro de 2026",
@@ -235,9 +300,13 @@
     "Ficha da Receita": "-",
     "Especificação da Receita": "-",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 17,
     "Exercício": "2026",
     "Mês": "Janeiro",
     "Descrição": "Listagem de Despesas Liquidadas - Janeiro de 2026",
@@ -249,9 +318,13 @@
     "Ficha da Receita": "-",
     "Especificação da Receita": "-",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 18,
     "Exercício": "2026",
     "Mês": "Janeiro",
     "Descrição": "Listagem de Despesas Extra Liquidadas - Janeiro de 2026",
@@ -263,9 +336,13 @@
     "Ficha da Receita": "-",
     "Especificação da Receita": "-",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 19,
     "Exercício": "2025",
     "Mês": "Dezembro",
     "Descrição": "Listagem de Despesas Extra Liquidadas - Dezembro de 2025",
@@ -277,9 +354,13 @@
     "Ficha da Receita": "-",
     "Especificação da Receita": "-",
     "Fonte de Recurso da Receita": "-",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/listagem-despesas/edition20260811103406-ek5GEw.pdf",
+    "somaAproximada": 163476351.12,
+    "quantidadeDeValoresEncontrados": 3932
   },
   {
+    "_linhaIndice": 20,
     "Exercício": "2025",
     "Mês": "Dezembro",
     "Descrição": "Listagem de Despesas Empenhadas - Dezembro de 2025",
@@ -294,6 +375,7 @@
     "Anexos": "+1"
   },
   {
+    "_linhaIndice": 21,
     "Exercício": "2025",
     "Mês": "Dezembro",
     "Descrição": "Listagem de Despesas Liquidadas - Dezembro de 2025",
@@ -308,6 +390,7 @@
     "Anexos": "+1"
   },
   {
+    "_linhaIndice": 22,
     "Exercício": "2025",
     "Mês": "Novembro",
     "Descrição": "Listagem de Despesas Liquidadas - Novembro de 2025",
@@ -322,6 +405,7 @@
     "Anexos": "+1"
   },
   {
+    "_linhaIndice": 23,
     "Exercício": "2025",
     "Mês": "Novembro",
     "Descrição": "Listagem de Despesas Liquidadas - Modelo 2 -  Novembro de 2025",
@@ -336,6 +420,7 @@
     "Anexos": "+1"
   },
   {
+    "_linhaIndice": 24,
     "Exercício": "2025",
     "Mês": "Novembro",
     "Descrição": "Listagem de Despesas Empenhadas - Novembro de 2025",
