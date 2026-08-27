@@ -1,34 +1,12 @@
-name: Atualizar despesas de Nhamundá
-
-# Roda automaticamente todo dia 5 de cada mês, às 09:00 (horário de Brasília),
-# e também pode ser disparado manualmente pela aba "Actions" no GitHub.
-on:
-  schedule:
-    - cron: "0 12 5 * *"
-  workflow_dispatch: {}
-
-jobs:
-  atualizar:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Baixar o código do repositório
-        uses: actions/checkout@v4
-
-      - name: Preparar o Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Instalar as dependências
-        run: npm install
-
-      - name: Coletar os dados de despesas no portal oficial
-        run: npm run coletar
-
-      - name: Salvar os dados atualizados no repositório
-        run: |
-          git config user.name "robo-transparencia"
-          git config user.email "robo-transparencia@users.noreply.github.com"
-          git add data/
-          git diff --cached --quiet || git commit -m "Atualização automática dos dados de despesas"
-          git push
+{
+  "name": "transparencia-am",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Automacao de coleta dos dados de despesas da Prefeitura de Nhamunda",
+  "scripts": {
+    "coletar": "node scripts/coletar-despesas.js"
+  },
+  "dependencies": {
+    "puppeteer": "^23.9.0"
+  }
+}
