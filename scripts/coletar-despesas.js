@@ -127,12 +127,21 @@ async function abrirAnexoDaLinha(pagina, indiceLinha, descricaoEsperada) {
   return linkPdf;
 }
 
-async function baixarESomarPdf(url) {
+async function baixarESomarValores(url) {
   const resposta = await fetch(url);
   if (!resposta.ok) throw new Error(`Falha ao baixar (status ${resposta.status})`);
-  const buffer = Buffer.from(await resposta.arrayBuffer());
-  const dados = await pdfParse(buffer);
-  const valores = (dados.text.match(REGEX_VALOR) || []).map(paraNumero);
+
+  let texto;
+  if (url.toLowerCase().endsWith(".pdf")) {
+    const buffer = Buffer.from(await resposta.arrayBuffer());
+    const dados = await pdfParse(buffer);
+    texto = dados.text;
+  } else {
+    // Arquivo .txt ou outro formato de texto puro - lê direto, sem PDF.
+    texto = await resposta.text();
+  }
+
+  const valores = (texto.match(REGEX_VALOR) || []).map(paraNumero);
   return {
     quantidadeDeValoresEncontrados: valores.length,
     somaAproximada: Number(valores.reduce((soma, n) => soma + n, 0).toFixed(2)),
@@ -172,7 +181,7 @@ async function main() {
           const linkPdf = await abrirAnexoDaLinha(aba, registro._linhaIndice, registro["Descrição"]);
           if (linkPdf) {
             registro.linkAnexo = linkPdf;
-            const resumo = await baixarESomarPdf(linkPdf);
+            const resumo = await baixarESomarValores(linkPdf);
             registro.somaAproximada = resumo.somaAproximada;
             registro.quantidadeDeValoresEncontrados = resumo.quantidadeDeValoresEncontrados;
             console.log(`    Anexo lido: ${linkPdf} (soma aprox: ${resumo.somaAproximada})`);
