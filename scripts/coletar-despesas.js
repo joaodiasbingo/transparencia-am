@@ -170,14 +170,25 @@ function extrairEmendasParlamentares(texto) {
   // evita perder parte do nome do parlamentar quando ele quebra em duas
   // linhas dentro do relatório original.
   const achatado = texto.replace(/\r?\n/g, " ").replace(/\s+/g, " ");
+
+  // Captura tudo entre "Emenda Parlamentar:" e a data/valor seguinte - de
+  // forma ampla, porque às vezes esse trecho cai bem numa quebra de página
+  // do relatório e vem com cabeçalho/rodapé de página no meio.
   const REGEX_EMENDA =
-    /Emenda Parlamentar:\s*(\d+-[A-ZÀ-ÚÇ\s]+?)\s+\d{2}\/\d{2}\/\d{4}\s+CR[ÉE]DITO\s+.*?\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/g;
+    /Emenda Parlamentar:\s*([\s\S]+?)\s+\d{2}\/\d{2}\/\d{4}\s+CR[ÉE]DITO\s+.*?\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/g;
 
   const emendas = [];
   let encontrado;
   while ((encontrado = REGEX_EMENDA.exec(achatado)) !== null) {
+    // Limpa o texto de cabeçalho/rodapé de página que pode ter ficado no
+    // meio do nome, caso essa emenda caia numa quebra de página.
+    const origemLimpa = encontrado[1]
+      .replace(/Sistema Cont[aá]bil[\s\S]*?Total l[ií]quido/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
     emendas.push({
-      origem: encontrado[1].trim(),
+      origem: origemLimpa,
       valor: paraNumero(encontrado[2]),
     });
   }
