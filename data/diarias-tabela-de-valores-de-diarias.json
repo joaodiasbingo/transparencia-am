@@ -1,1 +1,86 @@
-[]
+[
+  {
+    "_linhaIndice": 0,
+    "Exercício": "2026",
+    "Mês": "",
+    "Descrição": "Tabela de Valores de Diárias - 2026 - Lei Municipal Nº 645-2020",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 1,
+    "Exercício": "2025",
+    "Mês": "Janeiro",
+    "Descrição": "Tabela de Valores de Diárias - 2025 - Lei Municipal Nº 645-2020",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/01/diarias/valores-diarias/edition20250514085948-0zQxYy.txt",
+    "somaAproximada": 5681.65,
+    "quantidadeDeValoresEncontrados": 13,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 2,
+    "Exercício": "2024",
+    "Mês": "",
+    "Descrição": "Tabela de Valores de Diárias - 2024 - Lei Municipal Nº 645-2020",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/00/diarias/valores-diarias/edition20250514090141.txt",
+    "somaAproximada": 5681.65,
+    "quantidadeDeValoresEncontrados": 13,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 3,
+    "Exercício": "2023",
+    "Mês": "",
+    "Descrição": "Tabela de Valores de Diárias - 2023 - Lei Municipal Nº 645-2020",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2023/00/diarias/valores-diarias/edition20250514090017.txt",
+    "somaAproximada": 5681.65,
+    "quantidadeDeValoresEncontrados": 13,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 4,
+    "Exercício": "2022",
+    "Mês": "",
+    "Descrição": "Tabela de Valores de Diárias - 2022 - Lei Municipal Nº 645-2020",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2022/00/diarias/tabela%20de%20valores%20de%20di%C3%A1rias/edition20220628150025-GxHLif.txt",
+    "somaAproximada": 5681.65,
+    "quantidadeDeValoresEncontrados": 13,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 5,
+    "Exercício": "2021",
+    "Mês": "",
+    "Descrição": "Tabela de Valores de Diárias - 2021 - Lei Municipal Nº 645-2020",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2020/00/documentos_oficiais/leis/edition20220429105647-IJfJV0.txt",
+    "somaAproximada": 5681.65,
+    "quantidadeDeValoresEncontrados": 13,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 6,
+    "Exercício": "2020",
+    "Mês": "",
+    "Descrição": "Tabela de Valores de Diárias - 2020 - Lei Municipal Nº 645-2020",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2020/00/diarias/tabela%20de%20valores%20de%20di%C3%A1rias/edition20220628150041-1A2WOn.txt",
+    "somaAproximada": 5681.65,
+    "quantidadeDeValoresEncontrados": 13,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 7,
+    "Exercício": "2019",
+    "Mês": "",
+    "Descrição": "Tabela de Valores de Diárias - 2019 - Lei Municipal Nº 645-2020",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2019/00/diarias/tabela%20de%20valores%20de%20di%C3%A1rias/edition20220628150053-vujOt4.txt",
+    "somaAproximada": 5681.65,
+    "quantidadeDeValoresEncontrados": 13,
+    "metodoDeCalculo": "aproximado_generico"
+  }
+]

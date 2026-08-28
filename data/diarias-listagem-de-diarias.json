@@ -1,1 +1,696 @@
-[]
+[
+  {
+    "_linhaIndice": 0,
+    "Exercício": "2026",
+    "Mês": "Junho",
+    "Descrição": "Relação de Diárias - Junho de 2026",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/diarias/listagem-diarias/edition20260811103512-8KSK1f.txt",
+    "somaAproximada": 90126.89,
+    "quantidadeDeValoresEncontrados": 41,
+    "metodoDeCalculo": "despesas_empenhadas",
+    "lancamentos": [
+      {
+        "data": "03/06/2026",
+        "valor": 5043.9,
+        "linha": "4296 O 03/06/2026 5.043,90 0,00 5.043,90 5.043,90 0,00 5.043,90 0,00 6.182.11 1.500.0000 2.007 313 33901400000000 FELIPPE DE LUCENA"
+      },
+      {
+        "data": "03/06/2026",
+        "valor": 1008.78,
+        "linha": "4300 O 03/06/2026 1.008,78 0,00 1.008,78 1.008,78 0,00 1.008,78 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 FRANCISCO DE"
+      },
+      {
+        "data": "03/06/2026",
+        "valor": 1008.78,
+        "linha": "4301 O 03/06/2026 1.008,78 0,00 1.008,78 1.008,78 0,00 1.008,78 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 NORACY BATISTA"
+      },
+      {
+        "data": "03/06/2026",
+        "valor": 1513.17,
+        "linha": "4302 O 03/06/2026 1.513,17 0,00 1.513,17 1.513,17 0,00 1.513,17 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 NEMORA ADRIANA"
+      },
+      {
+        "data": "05/06/2026",
+        "valor": 2017.56,
+        "linha": "4320 O 05/06/2026 2.017,56 0,00 2.017,56 2.017,56 0,00 2.017,56 0,00 4.122.11 1.500.0000 2.008 30 33901400000000 HELESSON VERÇOSA"
+      },
+      {
+        "data": "08/06/2026",
+        "valor": 5043.9,
+        "linha": "4359 O 08/06/2026 5.043,90 0,00 5.043,90 5.043,90 0,00 5.043,90 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 JOSEIR VIANA DA"
+      },
+      {
+        "data": "09/06/2026",
+        "valor": 2017.56,
+        "linha": "4408 O 09/06/2026 2.017,56 0,00 2.017,56 2.017,56 0,00 2.017,56 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 CLAILSON LOPES"
+      },
+      {
+        "data": "09/06/2026",
+        "valor": 2174.7,
+        "linha": "4411 O 09/06/2026 2.174,70 0,00 2.174,70 2.174,70 0,00 2.174,70 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 LUCINOR DOS"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 2017.56,
+        "linha": "4451 O 10/06/2026 2.017,56 0,00 2.017,56 2.017,56 0,00 2.017,56 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 LUCIANA DOS REIS"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 5043.9,
+        "linha": "4464 O 10/06/2026 5.043,90 0,00 5.043,90 5.043,90 0,00 5.043,90 0,00 4.122.11 1.500.0000 2.003 2 33901400000000 EMILIANO DA SILVA"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 1087.35,
+        "linha": "4468 O 10/06/2026 1.087,35 0,00 1.087,35 1.087,35 0,00 1.087,35 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 FRANCISCO"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 3262.05,
+        "linha": "4479 O 10/06/2026 3.262,05 0,00 3.262,05 3.262,05 0,00 3.262,05 0,00 8.244.34 1.500.0000 2.024 110 33901400000000 GUIOMARA GADELHA"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 3026.34,
+        "linha": "4480 O 10/06/2026 3.026,34 0,00 3.026,34 3.026,34 0,00 3.026,34 0,00 4.122.11 1.500.0000 2.008 30 33901400000000 ZAIRE STELLINE"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 1087.35,
+        "linha": "4481 O 10/06/2026 1.087,35 0,00 1.087,35 1.087,35 0,00 1.087,35 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 ALCIA MARIA"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 3026.34,
+        "linha": "4482 O 10/06/2026 3.026,34 0,00 3.026,34 3.026,34 0,00 3.026,34 0,00 18.541.11 1.500.0000 2.027 121 33901400000000 JOAO PAULO"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 2521.95,
+        "linha": "4483 O 10/06/2026 2.521,95 0,00 2.521,95 2.521,95 0,00 2.521,95 0,00 18.541.11 1.500.0000 2.027 121 33901400000000 ALCINEIA FONTES"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 1087.35,
+        "linha": "4484 O 10/06/2026 1.087,35 0,00 1.087,35 1.087,35 0,00 1.087,35 0,00 18.541.11 1.500.0000 2.027 121 33901400000000 ANA THAYNA"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 1087.35,
+        "linha": "4488 O 10/06/2026 1.087,35 0,00 1.087,35 1.087,35 0,00 1.087,35 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 GREICILENE PAULAIN"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 1087.35,
+        "linha": "4492 O 10/06/2026 1.087,35 0,00 1.087,35 1.087,35 0,00 1.087,35 0,00 4.122.11 1.500.0000 2.005 9 33901400000000 CAMILA MOTA"
+      },
+      {
+        "data": "10/06/2026",
+        "valor": 1087.35,
+        "linha": "4493 O 10/06/2026 1.087,35 0,00 1.087,35 1.087,35 0,00 1.087,35 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 MATHEUS DE SOUZA"
+      },
+      {
+        "data": "12/06/2026",
+        "valor": 1513.17,
+        "linha": "4579 O 12/06/2026 1.513,17 0,00 1.513,17 1.513,17 0,00 1.513,17 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 GRACELY ROCHA DA"
+      },
+      {
+        "data": "12/06/2026",
+        "valor": 1513.17,
+        "linha": "4580 O 12/06/2026 1.513,17 0,00 1.513,17 1.513,17 0,00 1.513,17 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 DELZIMAR DIOGO DA"
+      },
+      {
+        "data": "12/06/2026",
+        "valor": 3530.73,
+        "linha": "4582 O 12/06/2026 3.530,73 0,00 3.530,73 3.530,73 0,00 3.530,73 0,00 12.365.63 1.540.0000 2.089 161 33901400000000 NEISE LOPES"
+      },
+      {
+        "data": "15/06/2026",
+        "valor": 1812.25,
+        "linha": "4605 O 15/06/2026 1.812,25 0,00 1.812,25 1.812,25 0,00 1.812,25 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 ELCKY MARILLAINE"
+      },
+      {
+        "data": "15/06/2026",
+        "valor": 2521.95,
+        "linha": "4606 O 15/06/2026 2.521,95 0,00 2.521,95 2.521,95 0,00 2.521,95 0,00 12.365.63 1.540.0000 2.089 161 33901400000000 ANA CRISTINA"
+      },
+      {
+        "data": "15/06/2026",
+        "valor": 2017.56,
+        "linha": "4607 O 15/06/2026 2.017,56 0,00 2.017,56 2.017,56 0,00 2.017,56 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 JOSANDE VIANA"
+      },
+      {
+        "data": "16/06/2026",
+        "valor": 1449.8,
+        "linha": "4617 O 16/06/2026 1.449,80 0,00 1.449,80 1.449,80 0,00 1.449,80 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 HUGO BRITO"
+      },
+      {
+        "data": "16/06/2026",
+        "valor": 5316,
+        "linha": "4618 O 16/06/2026 5.316,00 0,00 5.316,00 5.316,00 265,80 5.050,20 0,00 18.541.11 1.500.0000 2.027 121 33901400000000 LINDOMARA"
+      },
+      {
+        "data": "16/06/2026",
+        "valor": 1513.17,
+        "linha": "4619 O 16/06/2026 1.513,17 0,00 1.513,17 1.513,17 0,00 1.513,17 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 JOSE ALBERTO"
+      },
+      {
+        "data": "17/06/2026",
+        "valor": 5043.9,
+        "linha": "4628 O 17/06/2026 5.043,90 0,00 5.043,90 5.043,90 0,00 5.043,90 0,00 20.605.11 1.500.0000 2.017 66 33901400000000 WENDELL JOSE DOS"
+      },
+      {
+        "data": "18/06/2026",
+        "valor": 1513.17,
+        "linha": "4677 O 18/06/2026 1.513,17 0,00 1.513,17 1.513,17 0,00 1.513,17 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 ELBA DA SILVA"
+      },
+      {
+        "data": "19/06/2026",
+        "valor": 1513.17,
+        "linha": "4715 O 19/06/2026 1.513,17 0,00 1.513,17 1.513,17 0,00 1.513,17 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 LIVANDIA DOS"
+      },
+      {
+        "data": "23/06/2026",
+        "valor": 1812.25,
+        "linha": "4788 O 23/06/2026 1.812,25 0,00 1.812,25 1.812,25 0,00 1.812,25 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 ELDILEIA FURTADO"
+      },
+      {
+        "data": "24/06/2026",
+        "valor": 1513.17,
+        "linha": "4798 O 24/06/2026 1.513,17 0,00 1.513,17 1.513,17 0,00 1.513,17 0,00 6.182.11 1.500.0000 2.007 313 33901400000000 FRANCINALDO DE"
+      },
+      {
+        "data": "24/06/2026",
+        "valor": 1812.25,
+        "linha": "4809 O 24/06/2026 1.812,25 0,00 1.812,25 1.812,25 0,00 1.812,25 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 JUVANDER TAVARES"
+      },
+      {
+        "data": "26/06/2026",
+        "valor": 3026.34,
+        "linha": "4848 O 26/06/2026 3.026,34 0,00 3.026,34 3.026,34 0,00 3.026,34 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 FRANCISCO DE"
+      },
+      {
+        "data": "17/06/2026",
+        "valor": 2017.56,
+        "linha": "4868 O 17/06/2026 2.017,56 0,00 2.017,56 2.017,56 0,00 2.017,56 0,00 4.122.11 1.500.0000 2.003 2 33901400000000 ROSEANE GOMES"
+      },
+      {
+        "data": "17/06/2026",
+        "valor": 1087.29,
+        "linha": "4869 O 17/06/2026 1.087,29 0,00 1.087,29 1.087,29 0,00 1.087,29 0,00 20.605.11 1.500.0000 2.017 66 33901400000000 ISRAEL OLIVEIRA"
+      },
+      {
+        "data": "17/06/2026",
+        "valor": 1812.25,
+        "linha": "4875 O 17/06/2026 1.812,25 0,00 1.812,25 1.812,25 0,00 1.812,25 0,00 8.244.34 1.500.0000 2.024 110 33901400000000 CLYCIANA DOS"
+      },
+      {
+        "data": "17/06/2026",
+        "valor": 1812.25,
+        "linha": "4876 O 17/06/2026 1.812,25 0,00 1.812,25 1.812,25 0,00 1.812,25 0,00 8.244.34 1.500.0000 2.024 110 33901400000000 KEVIN WALEF DA"
+      },
+      {
+        "data": "17/06/2026",
+        "valor": 724.9,
+        "linha": "4895 O 17/06/2026 724,90 0,00 724,90 724,90 0,00 724,90 0,00 4.122.11 1.500.0000 2.008 30 33901400000000 EVERTON CASTRO"
+      }
+    ]
+  },
+  {
+    "_linhaIndice": 1,
+    "Exercício": "2026",
+    "Mês": "Maio",
+    "Descrição": "Relação de Diárias - Maio de 2026",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/05/diarias/listagem-diarias/edition20260729113123-fJB7t5.txt",
+    "somaAproximada": 104442.62,
+    "quantidadeDeValoresEncontrados": 46,
+    "metodoDeCalculo": "despesas_empenhadas",
+    "lancamentos": [
+      {
+        "data": "05/05/2026",
+        "valor": 1449.8,
+        "linha": "3362 O 05/05/2026 1.449,80 0,00 1.449,80 1.449,80 0,00 1.449,80 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 JULIO CESAR"
+      },
+      {
+        "data": "05/05/2026",
+        "valor": 1449.8,
+        "linha": "3365 O 05/05/2026 1.449,80 0,00 1.449,80 1.449,80 0,00 1.449,80 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 YEDA AZEVEDO DAS"
+      },
+      {
+        "data": "05/05/2026",
+        "valor": 2521.95,
+        "linha": "3366 O 05/05/2026 2.521,95 0,00 2.521,95 2.521,95 0,00 2.521,95 0,00 13.392.71 1.500.0000 2.039 172 33901400000000 KETHELEEN"
+      },
+      {
+        "data": "05/05/2026",
+        "valor": 1449.8,
+        "linha": "3367 O 05/05/2026 1.449,80 0,00 1.449,80 1.449,80 0,00 1.449,80 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 SAMARA DE"
+      },
+      {
+        "data": "05/05/2026",
+        "valor": 1449.8,
+        "linha": "3368 O 05/05/2026 1.449,80 0,00 1.449,80 1.449,80 0,00 1.449,80 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 ANA BEATRIZ SILVA"
+      },
+      {
+        "data": "05/05/2026",
+        "valor": 1449.8,
+        "linha": "3369 O 05/05/2026 1.449,80 0,00 1.449,80 1.449,80 0,00 1.449,80 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 LUANA SOUZA"
+      },
+      {
+        "data": "05/05/2026",
+        "valor": 2521.95,
+        "linha": "3370 O 05/05/2026 2.521,95 0,00 2.521,95 2.521,95 0,00 2.521,95 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 ALCINEIA FONTES"
+      },
+      {
+        "data": "05/05/2026",
+        "valor": 1449.8,
+        "linha": "3373 O 05/05/2026 1.449,80 0,00 1.449,80 1.449,80 0,00 1.449,80 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 ARILSON TAVARES"
+      },
+      {
+        "data": "05/05/2026",
+        "valor": 2174.7,
+        "linha": "3375 O 05/05/2026 2.174,70 0,00 2.174,70 2.174,70 0,00 2.174,70 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 PAULIANE"
+      },
+      {
+        "data": "05/05/2026",
+        "valor": 1812.25,
+        "linha": "3376 O 05/05/2026 1.812,25 0,00 1.812,25 1.812,25 0,00 1.812,25 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 MATILDES CARDOSO"
+      },
+      {
+        "data": "06/05/2026",
+        "valor": 2824.57,
+        "linha": "3465 O 06/05/2026 2.824,57 0,00 2.824,57 2.824,57 0,00 2.824,57 0,00 12.365.63 1.540.0000 2.089 161 33901400000000 NEISE LOPES"
+      },
+      {
+        "data": "07/05/2026",
+        "valor": 1087.35,
+        "linha": "3512 O 07/05/2026 1.087,35 0,00 1.087,35 1.087,35 0,00 1.087,35 0,00 13.392.71 1.500.0000 2.039 172 33901400000000 JOAO ADRIANO DAS"
+      },
+      {
+        "data": "07/05/2026",
+        "valor": 4035.12,
+        "linha": "3524 O 07/05/2026 4.035,12 0,00 4.035,12 4.035,12 0,00 4.035,12 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 NEMORA ADRIANA"
+      },
+      {
+        "data": "08/05/2026",
+        "valor": 5043.9,
+        "linha": "3526 O 08/05/2026 5.043,90 0,00 5.043,90 5.043,90 0,00 5.043,90 0,00 4.123.11 1.500.0000 2.013 51 33901400000000 JOÃO BATISTA"
+      },
+      {
+        "data": "08/05/2026",
+        "valor": 5043.9,
+        "linha": "3527 O 08/05/2026 5.043,90 0,00 5.043,90 5.043,90 0,00 5.043,90 0,00 4.123.11 1.500.0000 2.013 51 33901400000000 MARCELO PINHEIRO"
+      },
+      {
+        "data": "08/05/2026",
+        "valor": 3530.73,
+        "linha": "3533 O 08/05/2026 3.530,73 0,00 3.530,73 3.530,73 0,00 3.530,73 0,00 6.182.11 1.500.0000 2.007 313 33901400000000 FELIPPE DE LUCENA"
+      },
+      {
+        "data": "11/05/2026",
+        "valor": 2017.56,
+        "linha": "3583 O 11/05/2026 2.017,56 0,00 2.017,56 2.017,56 0,00 2.017,56 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 LUCIANA DOS REIS"
+      },
+      {
+        "data": "12/05/2026",
+        "valor": 6052.6,
+        "linha": "3631 O 12/05/2026 6.052,60 0,00 6.052,60 6.052,60 0,00 6.052,60 0,00 4.122.11 1.500.0000 2.003 2 33901400000000 RAIMUNDA MARINA"
+      },
+      {
+        "data": "12/05/2026",
+        "valor": 1210.53,
+        "linha": "3644 O 12/05/2026 1.210,53 0,00 1.210,53 1.210,53 0,00 1.210,53 0,00 18.541.11 1.500.0000 2.027 121 33901400000000 JOAO PAULO"
+      },
+      {
+        "data": "12/05/2026",
+        "valor": 966.48,
+        "linha": "3647 O 12/05/2026 966,48 0,00 966,48 966,48 0,00 966,48 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 NAGELA RANDRA"
+      },
+      {
+        "data": "12/05/2026",
+        "valor": 241.62,
+        "linha": "3648 O 12/05/2026 241,62 0,00 241,62 241,62 0,00 241,62 0,00 4.123.11 1.500.0000 2.013 51 33901400000000 EDSON DE JESUS"
+      },
+      {
+        "data": "12/05/2026",
+        "valor": 1087.29,
+        "linha": "3649 O 12/05/2026 1.087,29 0,00 1.087,29 1.087,29 0,00 1.087,29 0,00 20.605.11 1.500.0000 2.017 66 33901400000000 ISRAEL OLIVEIRA"
+      },
+      {
+        "data": "12/05/2026",
+        "valor": 966.48,
+        "linha": "3654 O 12/05/2026 966,48 0,00 966,48 966,48 0,00 966,48 0,00 4.123.11 1.500.0000 2.013 51 33901400000000 RONALDO"
+      },
+      {
+        "data": "12/05/2026",
+        "valor": 1812.25,
+        "linha": "3663 O 12/05/2026 1.812,25 0,00 1.812,25 1.812,25 0,00 1.812,25 0,00 4.123.11 1.500.0000 2.013 51 33901400000000 MOISÉS HOLANDA DA"
+      },
+      {
+        "data": "13/05/2026",
+        "valor": 5043.9,
+        "linha": "3667 O 13/05/2026 5.043,90 0,00 5.043,90 5.043,90 0,00 5.043,90 0,00 4.123.11 1.500.0000 2.013 51 33901400000000 LICURGO GOMES"
+      },
+      {
+        "data": "13/05/2026",
+        "valor": 3624.5,
+        "linha": "3668 O 13/05/2026 3.624,50 0,00 3.624,50 3.624,50 0,00 3.624,50 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 LEUMIR JOSE DA"
+      },
+      {
+        "data": "13/05/2026",
+        "valor": 4539.51,
+        "linha": "3669 O 13/05/2026 4.539,51 0,00 4.539,51 4.539,51 0,00 4.539,51 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 JOSANDE VIANA"
+      },
+      {
+        "data": "13/05/2026",
+        "valor": 1087.35,
+        "linha": "3670 O 13/05/2026 1.087,35 0,00 1.087,35 1.087,35 0,00 1.087,35 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 ELIANA GONÇALVES"
+      },
+      {
+        "data": "14/05/2026",
+        "valor": 2017.56,
+        "linha": "3690 O 14/05/2026 2.017,56 0,00 2.017,56 2.017,56 0,00 2.017,56 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 ESMAEL AZEVEDO"
+      },
+      {
+        "data": "14/05/2026",
+        "valor": 3624.5,
+        "linha": "3691 O 14/05/2026 3.624,50 0,00 3.624,50 3.624,50 0,00 3.624,50 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 DELIANA AZEVEDO"
+      },
+      {
+        "data": "15/05/2026",
+        "valor": 1812.25,
+        "linha": "3706 O 15/05/2026 1.812,25 0,00 1.812,25 1.812,25 0,00 1.812,25 0,00 8.244.34 1.500.0000 2.024 110 33901400000000 KEVIN WALEF DA"
+      },
+      {
+        "data": "18/05/2026",
+        "valor": 3530.73,
+        "linha": "3707 O 18/05/2026 3.530,73 0,00 3.530,73 3.530,73 0,00 3.530,73 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 CLAILSON LOPES"
+      },
+      {
+        "data": "19/05/2026",
+        "valor": 2174.7,
+        "linha": "3717 O 19/05/2026 2.174,70 0,00 2.174,70 2.174,70 0,00 2.174,70 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 OZIMAR SANTOS DE"
+      },
+      {
+        "data": "19/05/2026",
+        "valor": 2174.7,
+        "linha": "3718 O 19/05/2026 2.174,70 0,00 2.174,70 2.174,70 0,00 2.174,70 0,00 12.361.62 1.540.0000 2.080 151 33901400000000 MARIA EDUARDA"
+      },
+      {
+        "data": "20/05/2026",
+        "valor": 724.89,
+        "linha": "3738 O 20/05/2026 724,89 0,00 724,89 724,89 0,00 724,89 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 JULIO CESAR"
+      },
+      {
+        "data": "20/05/2026",
+        "valor": 1210.53,
+        "linha": "3739 O 20/05/2026 1.210,53 0,00 1.210,53 1.210,53 0,00 1.210,53 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 ALCINEIA FONTES"
+      },
+      {
+        "data": "20/05/2026",
+        "valor": 724.89,
+        "linha": "3740 O 20/05/2026 724,89 0,00 724,89 724,89 0,00 724,89 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 ELZIANE GOMES DE"
+      },
+      {
+        "data": "20/05/2026",
+        "valor": 724.89,
+        "linha": "3741 O 20/05/2026 724,89 0,00 724,89 724,89 0,00 724,89 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 SAMARA DE"
+      },
+      {
+        "data": "20/05/2026",
+        "valor": 724.89,
+        "linha": "3742 O 20/05/2026 724,89 0,00 724,89 724,89 0,00 724,89 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 LUANA SOUZA"
+      },
+      {
+        "data": "20/05/2026",
+        "valor": 724.89,
+        "linha": "3744 O 20/05/2026 724,89 0,00 724,89 724,89 0,00 724,89 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 ANA THAYNA"
+      },
+      {
+        "data": "20/05/2026",
+        "valor": 3624.5,
+        "linha": "3745 O 20/05/2026 3.624,50 0,00 3.624,50 3.624,50 0,00 3.624,50 0,00 4.122.11 1.500.0000 2.008 30 33901400000000 HERICKSON ROSANO"
+      },
+      {
+        "data": "20/05/2026",
+        "valor": 3026.34,
+        "linha": "3746 O 20/05/2026 3.026,34 0,00 3.026,34 3.026,34 0,00 3.026,34 0,00 4.122.11 1.500.0000 2.008 30 33901400000000 HELESSON VERÇOSA"
+      },
+      {
+        "data": "20/05/2026",
+        "valor": 1449.78,
+        "linha": "3748 O 20/05/2026 1.449,78 0,00 1.449,78 1.449,78 0,00 1.449,78 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 SHIRLEY GUIMARÃES"
+      },
+      {
+        "data": "20/05/2026",
+        "valor": 724.89,
+        "linha": "3750 O 20/05/2026 724,89 0,00 724,89 724,89 0,00 724,89 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 RUAN CARLOS"
+      },
+      {
+        "data": "22/05/2026",
+        "valor": 6052.6,
+        "linha": "3801 O 22/05/2026 6.052,60 0,00 6.052,60 6.052,60 0,00 6.052,60 0,00 4.122.11 1.500.0000 2.003 2 33901400000000 ANTONIO"
+      },
+      {
+        "data": "25/05/2026",
+        "valor": 1449.8,
+        "linha": "3817 O 25/05/2026 1.449,80 0,00 1.449,80 1.449,80 0,00 1.449,80 0,00 10.301.11 1.500.1002 2.022 96 33901400000000 HUGO BRITO"
+      }
+    ]
+  },
+  {
+    "_linhaIndice": 2,
+    "Exercício": "2026",
+    "Mês": "Março",
+    "Descrição": "Relação de Diárias - Março de 2026",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/03/diarias/listagem-diarias/edition20260609140854-ZrKjS8.txt",
+    "somaAproximada": 727926.06,
+    "quantidadeDeValoresEncontrados": 282,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 3,
+    "Exercício": "2026",
+    "Mês": "Fevereiro",
+    "Descrição": "Relação de Diárias - Fevereiro de 2026",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/02/diarias/listagem-diarias/edition20260514152531-hiKQij.txt",
+    "somaAproximada": 349790.1,
+    "quantidadeDeValoresEncontrados": 162,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 4,
+    "Exercício": "2026",
+    "Mês": "Janeiro",
+    "Descrição": "Relação de Diárias - Janeiro de 2026",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/01/diarias/listagem-diarias/edition20260514152522-lk19oi.txt",
+    "somaAproximada": 481199.4,
+    "quantidadeDeValoresEncontrados": 186,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 5,
+    "Exercício": "2025",
+    "Mês": "Dezembro",
+    "Descrição": "Relação de Diárias - Dezembro de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/12/diarias/listagem-diarias/edition20260410103422-7Y3XL1.txt",
+    "somaAproximada": 288761.28,
+    "quantidadeDeValoresEncontrados": 138,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 6,
+    "Exercício": "2025",
+    "Mês": "Novembro",
+    "Descrição": "Relação de Diárias - Novembro de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/11/diarias/listagem-diarias/edition20260514080648-YXeE7w.txt",
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 0,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 7,
+    "Exercício": "2025",
+    "Mês": "Outubro",
+    "Descrição": "Relação de Diárias - Outubro de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/10/diarias/listagem-diarias/edition20260514080635-55GcIg.txt",
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 0,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 8,
+    "Exercício": "2025",
+    "Mês": "Setembro",
+    "Descrição": "Relação de Diárias - Setembro de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/09/diarias/listagem-diarias/edition20251202115810-aKalw7.txt",
+    "somaAproximada": 533060.52,
+    "quantidadeDeValoresEncontrados": 228,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 9,
+    "Exercício": "2025",
+    "Mês": "Agosto",
+    "Descrição": "Relação de Diárias - Agosto de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/08/diarias/listagem-diarias/edition20251028084148-kWcjBr.txt",
+    "somaAproximada": 514278.84,
+    "quantidadeDeValoresEncontrados": 210,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 10,
+    "Exercício": "2025",
+    "Mês": "Julho",
+    "Descrição": "Relação de Diárias - Julho de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/07/diarias/listagem-diarias/edition20251002165658-voU7RL.txt",
+    "somaAproximada": 460260.54,
+    "quantidadeDeValoresEncontrados": 186,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 11,
+    "Exercício": "2025",
+    "Mês": "Junho",
+    "Descrição": "Relação de Diárias - Junho de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/06/diarias/listagem-diarias/edition20251002164432-UUS0eB.txt",
+    "somaAproximada": 572128.2,
+    "quantidadeDeValoresEncontrados": 246,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 12,
+    "Exercício": "2025",
+    "Mês": "Maio",
+    "Descrição": "Relação de Diárias - Maio de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/05/diarias/listagem-diarias/edition20251002163806-sNI9nK.txt",
+    "somaAproximada": 378260.7,
+    "quantidadeDeValoresEncontrados": 144,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 13,
+    "Exercício": "2025",
+    "Mês": "Abril",
+    "Descrição": "Relação de Diárias - Abril de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/04/diarias/listagem-diarias/edition20250729080105-b1wcVK.txt",
+    "somaAproximada": 221498.25,
+    "quantidadeDeValoresEncontrados": 66,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 14,
+    "Exercício": "2025",
+    "Mês": "Março",
+    "Descrição": "Relação de Diárias - Março de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/03/diarias/listagem-diarias/edition20250728165702-rbUcU7.txt",
+    "somaAproximada": 161118.84,
+    "quantidadeDeValoresEncontrados": 50,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 15,
+    "Exercício": "2025",
+    "Mês": "Fevereiro",
+    "Descrição": "Relação de Diárias - Fevereiro de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/02/diarias/listagem-diarias/edition20250728163944-PVXs7a.txt",
+    "somaAproximada": 353544.32,
+    "quantidadeDeValoresEncontrados": 74,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 16,
+    "Exercício": "2025",
+    "Mês": "Janeiro",
+    "Descrição": "Relação de Diárias - Janeiro de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/01/diarias/listagem-diarias/edition20250728163555-BmdkwK.txt",
+    "somaAproximada": 59347.3,
+    "quantidadeDeValoresEncontrados": 16,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 17,
+    "Exercício": "2024",
+    "Mês": "Dezembro",
+    "Descrição": "Relação de Diárias - Dezembro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/12/diarias/listagem-diarias/edition20250320104329-J0sVCh.txt",
+    "somaAproximada": 506322.84,
+    "quantidadeDeValoresEncontrados": 90,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 18,
+    "Exercício": "2024",
+    "Mês": "Novembro",
+    "Descrição": "Relação de Diárias - Novembro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/11/diarias/listagem-diarias/edition20250320104335-DE3yE9.txt",
+    "somaAproximada": 575089.56,
+    "quantidadeDeValoresEncontrados": 140,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 19,
+    "Exercício": "2024",
+    "Mês": "Outubro",
+    "Descrição": "Relação de Diárias - Outubro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/10/diarias/listagem-diarias/edition20241217101341-r4FKiF.txt",
+    "somaAproximada": 940272.36,
+    "quantidadeDeValoresEncontrados": 190,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 20,
+    "Exercício": "2024",
+    "Mês": "Setembro",
+    "Descrição": "Relação de Diárias - Setembro de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 21,
+    "Exercício": "2024",
+    "Mês": "Agosto",
+    "Descrição": "Relação de Diárias - Agosto de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 22,
+    "Exercício": "2024",
+    "Mês": "Julho",
+    "Descrição": "Relação de Diárias - Julho de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 23,
+    "Exercício": "2024",
+    "Mês": "Junho",
+    "Descrição": "Relação de Diárias - Junho de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 24,
+    "Exercício": "2024",
+    "Mês": "Maio",
+    "Descrição": "Relação de Diárias  -  Maio de 2024",
+    "Anexos": "+1"
+  }
+]

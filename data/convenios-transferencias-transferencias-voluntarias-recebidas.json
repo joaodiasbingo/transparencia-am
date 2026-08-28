@@ -1,1 +1,221 @@
-[]
+[
+  {
+    "_linhaIndice": 0,
+    "Exercício": "2026",
+    "Mês": "Julho",
+    "Descrição": "Esta Unidade Gestora declara que, no período de 01/02/2026 a 31/07/2026, não houve Transferências Voluntárias Recebidas.",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 1,
+    "Exercício": "2026",
+    "Mês": "Janeiro",
+    "Descrição": "Termo de Cooperação Nº 41694188 - Extrato - Unidade Habitacionais do Empreendimento Comunidade Juruá - DOM",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 2,
+    "Exercício": "2026",
+    "Mês": "Janeiro",
+    "Descrição": "Termo de Cooperação Nº 41693945 - Extrato - Unidades habitacionais do Empreendiemnto Comunidade Laguinho - DOM",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 3,
+    "Exercício": "2026",
+    "Mês": "Janeiro",
+    "Descrição": "Termo de Cooperação Nº 41693727 - Extrato - Unidades Habitacionais do Empreendimento Comunidade Juruá - DOM",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 4,
+    "Exercício": "2026",
+    "Mês": "Janeiro",
+    "Descrição": "Termo de Cooperação Nº 41694074 -Extrato - Unidades Habitacionais do Empeendimento Comunidade Guaraby - DOM",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 5,
+    "Exercício": "2026",
+    "Mês": "Janeiro",
+    "Descrição": "Termo de Cooperação Nº 41693831 - Extrato - Unidade Habitacionais do Empreendimento Comunidade Cutipanã - DOM",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 6,
+    "Exercício": "2025",
+    "Mês": "",
+    "Descrição": "Plano de Trabalho Atualizado - Implantação da Política de Resíduos Sólidos FEMA",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 7,
+    "Exercício": "2025",
+    "Mês": "",
+    "Descrição": "Termo de Convênio Nº 002-2025 - Implantação da Política de Resíduos Sólidos",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 8,
+    "Exercício": "2025",
+    "Mês": "",
+    "Descrição": "Relação de Transferências Voluntárias Firmadas - 2025",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 9,
+    "Exercício": "2024",
+    "Mês": "Dezembro",
+    "Descrição": "Transferências Voluntárias Recebidas - Dezembro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/12/convenios-transferencias/transferencias-recebidas/edition20250320104428-KHOUrO.txt",
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
+  },
+  {
+    "_linhaIndice": 10,
+    "Exercício": "2024",
+    "Mês": "Novembro",
+    "Descrição": "Transferências Voluntárias Recebidas - Novembro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/11/convenios-transferencias/transferencias-recebidas/edition20250320104437-Rye4xm.txt",
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
+  },
+  {
+    "_linhaIndice": 11,
+    "Exercício": "2024",
+    "Mês": "Outubro",
+    "Descrição": "Transferências Voluntárias Recebidas - Outubro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/10/convenios-transferencias/transferencias-recebidas/edition20241217101431-ubYnON.txt",
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
+  },
+  {
+    "_linhaIndice": 12,
+    "Exercício": "2024",
+    "Mês": "Setembro",
+    "Descrição": "Transferências Voluntárias Recebidas - Setembro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/09/convenios-transferencias/transferencias-recebidas/edition20241112105210-NUfS9W.txt",
+    "somaAproximada": 241209,
+    "quantidadeDeValoresEncontrados": 2,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 13,
+    "Exercício": "2024",
+    "Mês": "Agosto",
+    "Descrição": "Transferências Voluntárias Recebidas - Agosto de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/08/convenios-transferencias/transferencias-recebidas/edition20241029111916-znrTjO.txt",
+    "somaAproximada": 1000000,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
+  },
+  {
+    "_linhaIndice": 14,
+    "Exercício": "2024",
+    "Mês": "Julho",
+    "Descrição": "Transferências Voluntárias Recebidas - Julho de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/07/convenios-transferencias/transferencias-recebidas/edition20241002081821-MRdxJi.txt",
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
+  },
+  {
+    "_linhaIndice": 15,
+    "Exercício": "2024",
+    "Mês": "Junho",
+    "Descrição": "Transferências Voluntárias Recebidas - Junho de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/06/convenios-transferencias/transferencias-recebidas/edition20240819090148-376iPN.txt",
+    "somaAproximada": 500000,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
+  },
+  {
+    "_linhaIndice": 16,
+    "Exercício": "2024",
+    "Mês": "Maio",
+    "Descrição": "Transferências Voluntárias Recebidas - Maio de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/05/convenios-transferencias/transferencias-recebidas/edition20240819085720-uyFVbu.txt",
+    "somaAproximada": 800000,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
+  },
+  {
+    "_linhaIndice": 17,
+    "Exercício": "2024",
+    "Mês": "Abril",
+    "Descrição": "Transferências Voluntárias Recebidas - Abril de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/04/convenios-transferencias/transferencias-recebidas/edition20240819085344-p3Qfx9.txt",
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
+  },
+  {
+    "_linhaIndice": 18,
+    "Exercício": "2024",
+    "Mês": "Março",
+    "Descrição": "Transferências Voluntárias Recebidas - Março de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/03/convenios-transferencias/transferencias-recebidas/edition20240819085002-ykt0VL.txt",
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
+  },
+  {
+    "_linhaIndice": 19,
+    "Exercício": "2024",
+    "Mês": "Fevereiro",
+    "Descrição": "Transferências Voluntárias Recebidas - Fevereiro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/02/convenios-transferencias/transferencias-recebidas/edition20240819084513-7Tam6V.txt",
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
+  },
+  {
+    "_linhaIndice": 20,
+    "Exercício": "2024",
+    "Mês": "Janeiro",
+    "Descrição": "Transferências Voluntárias Recebidas - Janeiro de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 21,
+    "Exercício": "2023",
+    "Mês": "Dezembro",
+    "Descrição": "Transferências Voluntárias Recebidas - Dezembro de 2023",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 22,
+    "Exercício": "2023",
+    "Mês": "Novembro",
+    "Descrição": "Transferências Voluntárias Recebidas - Novembro de 2023",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 23,
+    "Exercício": "2023",
+    "Mês": "Outubro",
+    "Descrição": "Transferências Voluntárias Recebidas - Outubro de 2023",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 24,
+    "Exercício": "2023",
+    "Mês": "Setembro",
+    "Descrição": "Transferências Voluntárias Recebidas - Setembro de 2023",
+    "Anexos": "+1"
+  }
+]
