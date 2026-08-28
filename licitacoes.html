@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Licitações e Contratos de Nhamundá | Portal de Transparência Regional</title>
+<style>
+  :root {
+    --rio: #0b5d5a;
+    --rio-escuro: #073e3c;
+    --areia: #f6f2e9;
+    --texto: #23302f;
+    --texto-suave: #5b6b69;
+    --borda: #dcd5c4;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--areia);
+    color: var(--texto);
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  header {
+    background: var(--rio-escuro);
+    color: #fff;
+    padding: 28px 20px 24px;
+  }
+  header .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #a9d6cf;
+    margin: 0 0 6px;
+  }
+  header h1 { margin: 0; font-size: 26px; font-weight: 700; }
+  header p { margin: 8px 0 0; color: #cfe6e1; font-size: 15px; max-width: 640px; }
+  main { max-width: 820px; margin: 0 auto; padding: 20px 16px 60px; }
+  .carregando, .vazio { text-align: center; color: var(--texto-suave); padding: 24px 0; font-size: 14px; }
+
+  .campo-busca {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--borda);
+    font-size: 14px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+
+  h2.secao {
+    font-size: 19px;
+    margin: 34px 0 6px;
+    color: var(--rio-escuro);
+    border-bottom: 2px solid var(--rio);
+    padding-bottom: 8px;
+  }
+  .secao-subtitulo { font-size: 13px; color: var(--texto-suave); margin-bottom: 16px; }
+
+  .item-simples {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--texto);
+  }
+  .item-simples .periodo { font-size: 12px; color: var(--texto-suave); margin-bottom: 2px; }
+
+  .rodape-nota { font-size: 12px; color: var(--texto-suave); margin-top: 30px; text-align: center; }
+  a.link-oficial { color: var(--rio-escuro); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Prefeitura Municipal de Nhamundá &middot; Amazonas</p>
+  <h1>Licitações e Contratos</h1>
+  <p>Editais, contratos firmados e pagamentos ligados a contratos, coletados automaticamente do Portal da Transparência oficial.</p>
+</header>
+
+<main>
+
+  <input type="text" class="campo-busca" id="busca" placeholder="Buscar por palavra (ex: pregão, ambulância, show)...">
+
+  <h2 class="secao">Editais</h2>
+  <div class="secao-subtitulo">Processos licitatórios publicados (pregões, concorrências, dispensas)</div>
+  <div id="editais"><div class="carregando">Carregando...</div></div>
+
+  <h2 class="secao">Contratos Firmados</h2>
+  <div class="secao-subtitulo">Contratos assinados pela prefeitura, com número e objeto</div>
+  <div id="contratos"><div class="carregando">Carregando...</div></div>
+
+  <h2 class="secao">Pagamentos de Contratos</h2>
+  <div class="secao-subtitulo">Notas de empenho ligadas a contratos</div>
+  <div id="pagamentos"><div class="carregando">Carregando...</div></div>
+
+  <p class="rodape-nota">
+    Dados coletados automaticamente, uma vez por mês, direto do
+    <a class="link-oficial" href="https://transparencia.diretoriodigital.inf.br/client-page/pm-nhamunda" target="_blank" rel="noopener">Portal da Transparência oficial de Nhamundá</a>.
+  </p>
+
+</main>
+
+<script>
+const BASE = "https://raw.githubusercontent.com/joaodiasbingo/transparencia-am/main/data/";
+
+const secoes = [
+  { arquivo: "licitacoes-editais.json", id: "editais" },
+  { arquivo: "contratos-contratos.json", id: "contratos" },
+  { arquivo: "contratos-pagamentos.json", id: "pagamentos" },
+];
+
+const dadosCarregados = {};
+
+function renderizar(elementoId, registros, filtro) {
+  const alvo = document.getElementById(elementoId);
+  const termo = (filtro || "").toLowerCase();
+
+  const filtrados = registros.filter((r) =>
+    !termo || (r["Descrição"] || "").toLowerCase().includes(termo)
+  );
+
+  if (filtrados.length === 0) {
+    alvo.innerHTML = '<div class="vazio">Nenhum item encontrado.</div>';
+    return;
+  }
+
+  alvo.innerHTML = filtrados
+    .map((r) => {
+      const periodo = [r["Mês"], r["Exercício"]].filter(Boolean).join(" de ");
+      return `
+        <div class="item-simples">
+          <div class="periodo">${periodo || "-"}</div>
+          ${r["Descrição"] || ""}
+        </div>
+      `;
+    })
+    .join("");
+}
+
+async function carregarSecao(arquivo, elementoId) {
+  try {
+    const resposta = await fetch(BASE + arquivo);
+    if (!resposta.ok) throw new Error("Falha ao carregar.");
+    const registros = await resposta.json();
+    dadosCarregados[elementoId] = registros;
+    renderizar(elementoId, registros, "");
+  } catch (erro) {
+    document.getElementById(elementoId).innerHTML =
+      '<div class="vazio">Não foi possível carregar os dados agora.</div>';
+    console.error(erro);
+  }
+}
+
+document.getElementById("busca").addEventListener("input", (evento) => {
+  const termo = evento.target.value;
+  secoes.forEach((s) => {
+    if (dadosCarregados[s.id]) renderizar(s.id, dadosCarregados[s.id], termo);
+  });
+});
+
+secoes.forEach((s) => carregarSecao(s.arquivo, s.id));
+</script>
+
+</body>
+</html>
