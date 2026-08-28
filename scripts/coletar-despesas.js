@@ -166,31 +166,36 @@ function extrairValoresDeLinhasEstruturadas(texto) {
 }
 
 function extrairEmendasParlamentares(texto) {
-  // Junta tudo numa "linha" só, trocando quebras de linha por espaço - isso
-  // evita perder parte do nome do parlamentar quando ele quebra em duas
-  // linhas dentro do relatório original.
-  const achatado = texto.replace(/\r?\n/g, " ").replace(/\s+/g, " ");
-
-  // Captura tudo entre "Emenda Parlamentar:" e a data/valor seguinte - de
-  // forma ampla, porque às vezes esse trecho cai bem numa quebra de página
-  // do relatório e vem com cabeçalho/rodapé de página no meio.
-  const REGEX_EMENDA =
-    /Emenda Parlamentar:\s*([\s\S]+?)\s+\d{2}\/\d{2}\/\d{4}\s+CR[ÉE]DITO\s+.*?\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/g;
-
+  const linhas = texto.split(/\r?\n/);
   const emendas = [];
-  let encontrado;
-  while ((encontrado = REGEX_EMENDA.exec(achatado)) !== null) {
-    // Limpa o texto de cabeçalho/rodapé de página que pode ter ficado no
-    // meio do nome, caso essa emenda caia numa quebra de página.
-    const origemLimpa = encontrado[1]
-      .replace(/Sistema Cont[aá]bil[\s\S]*?Total l[ií]quido/gi, " ")
-      .replace(/\s+/g, " ")
-      .trim();
 
-    emendas.push({
-      origem: origemLimpa,
-      valor: paraNumero(encontrado[2]),
-    });
+  // O nome do parlamentar já aparece na mesma linha da data/valor - o que
+  // pode faltar é uma CONTINUAÇÃO do nome, que vem DEPOIS do valor, numa
+  // linha separada (mesmo padrão de quebra usado em outras especificações
+  // do relatório).
+  const REGEX_LINHA_EMENDA =
+    /Emenda Parlamentar:\s*(.+?)\s+\d{2}\/\d{2}\/\d{4}\s+CR[ÉE]DITO\s+.*?\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/;
+
+  for (let i = 0; i < linhas.length; i++) {
+    if (!linhas[i].includes("Emenda Parlamentar")) continue;
+    const encontrado = linhas[i].match(REGEX_LINHA_EMENDA);
+    if (!encontrado) continue;
+
+    let origem = encontrado[1].trim();
+
+    // Olha a próxima linha não vazia (pulando linhas em branco) - se for só
+    // letras/espaços (sem números) e não começar com "Total", é uma
+    // continuação do nome e deve ser juntada.
+    for (let j = i + 1; j < linhas.length && j <= i + 3; j++) {
+      const proxima = linhas[j].trim();
+      if (proxima === "") continue;
+      if (/^[A-ZÀ-ÿ][A-Za-zÀ-ÿ\s\-]*$/.test(proxima) && !proxima.startsWith("Total")) {
+        origem += " " + proxima;
+      }
+      break;
+    }
+
+    emendas.push({ origem, valor: paraNumero(encontrado[2]) });
   }
   return emendas;
 }
