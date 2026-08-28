@@ -44,6 +44,10 @@ const AREAS = [
       { id: 2147, nome: "acordos-firmados" },
     ],
   },
+  {
+    segmento: "recursos-humanos",
+    subcategorias: [{ id: 1595, nome: "folha-de-pagamento" }],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
