@@ -65,6 +65,14 @@ const AREAS = [
       { id: 1838, nome: "outros" },
     ],
   },
+  {
+    segmento: "contratos",
+    subcategorias: [
+      { id: 1600, nome: "contratos" },
+      { id: 2159, nome: "fiscais-de-contrato" },
+      { id: 2160, nome: "pagamentos" },
+    ],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
