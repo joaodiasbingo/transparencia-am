@@ -36,6 +36,14 @@ const AREAS = [
       { id: 3412, nome: "receitas-royalties" },
     ],
   },
+  {
+    segmento: "convenios-transferencias",
+    subcategorias: [
+      { id: 2145, nome: "transferencias-voluntarias-recebidas" },
+      { id: 2146, nome: "transferencias-voluntarias-realizadas" },
+      { id: 2147, nome: "acordos-firmados" },
+    ],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
