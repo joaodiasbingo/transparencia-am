@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Educação, Saúde e Assistência Social de Nhamundá | Portal de Transparência Regional</title>
+<style>
+  :root {
+    --rio: #0b5d5a; --rio-escuro: #073e3c; --areia: #f6f2e9;
+    --texto: #23302f; --texto-suave: #5b6b69; --borda: #dcd5c4; --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--areia); color: var(--texto); font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.5; }
+  header { background: var(--rio-escuro); color: #fff; padding: 28px 20px 24px; }
+  header .eyebrow { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #a9d6cf; margin: 0 0 6px; }
+  header h1 { margin: 0; font-size: 26px; font-weight: 700; }
+  header p { margin: 8px 0 0; color: #cfe6e1; font-size: 15px; max-width: 640px; }
+  main { max-width: 820px; margin: 0 auto; padding: 20px 16px 60px; }
+  .campo-busca { width: 100%; padding: 12px 16px; border-radius: 12px; border: 1px solid var(--borda); font-size: 14px; margin-bottom: 10px; box-sizing: border-box; }
+  .carregando, .vazio { text-align: center; color: var(--texto-suave); padding: 24px 0; font-size: 14px; }
+  h2.area { font-size: 22px; margin: 40px 0 4px; color: var(--rio-escuro); }
+  h3.secao { font-size: 16px; margin: 22px 0 4px; color: var(--rio); border-bottom: 1px solid var(--borda); padding-bottom: 6px; }
+  .item-simples { background: var(--card); border: 1px solid var(--borda); border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; font-size: 13px; color: var(--texto); }
+  .item-simples .periodo { font-size: 12px; color: var(--texto-suave); margin-bottom: 2px; }
+  .rodape-nota { font-size: 12px; color: var(--texto-suave); margin-top: 30px; text-align: center; }
+  a.link-oficial { color: var(--rio-escuro); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Prefeitura Municipal de Nhamundá &middot; Amazonas</p>
+  <h1>Educação, Saúde e Assistência Social</h1>
+  <p>Planos, conselhos, atas e serviços dessas três áreas, coletados automaticamente do Portal da Transparência oficial.</p>
+</header>
+
+<main>
+
+  <input type="text" class="campo-busca" id="busca" placeholder="Buscar por palavra...">
+
+  <h2 class="area">Educação</h2>
+  <h3 class="secao">Plano Municipal de Educação</h3>
+  <div id="edu-plano"><div class="carregando">Carregando...</div></div>
+  <h3 class="secao">Creches Públicas</h3>
+  <div id="edu-creches"><div class="carregando">Carregando...</div></div>
+  <h3 class="secao">Conselho Municipal de Educação</h3>
+  <div id="edu-conselho"><div class="carregando">Carregando...</div></div>
+  <h3 class="secao">Atas do Conselho</h3>
+  <div id="edu-atas"><div class="carregando">Carregando...</div></div>
+
+  <h2 class="area">Saúde</h2>
+  <h3 class="secao">Plano Municipal de Saúde</h3>
+  <div id="saude-plano"><div class="carregando">Carregando...</div></div>
+  <h3 class="secao">Serviços</h3>
+  <div id="saude-servicos"><div class="carregando">Carregando...</div></div>
+  <h3 class="secao">Relatório de Gestão Municipal de Saúde</h3>
+  <div id="saude-gestao"><div class="carregando">Carregando...</div></div>
+  <h3 class="secao">Conselho Municipal de Saúde</h3>
+  <div id="saude-conselho"><div class="carregando">Carregando...</div></div>
+  <h3 class="secao">Atas do Conselho</h3>
+  <div id="saude-atas"><div class="carregando">Carregando...</div></div>
+
+  <h2 class="area">Assistência Social</h2>
+  <h3 class="secao">Conselho Municipal de Assistência Social</h3>
+  <div id="as-conselho"><div class="carregando">Carregando...</div></div>
+  <h3 class="secao">Atas do Conselho</h3>
+  <div id="as-atas"><div class="carregando">Carregando...</div></div>
+
+  <p class="rodape-nota">
+    Dados coletados automaticamente, uma vez por mês, direto do
+    <a class="link-oficial" href="https://transparencia.diretoriodigital.inf.br/client-page/pm-nhamunda" target="_blank" rel="noopener">Portal da Transparência oficial de Nhamundá</a>.
+  </p>
+
+</main>
+
+<script>
+const BASE = "https://raw.githubusercontent.com/joaodiasbingo/transparencia-am/main/data/";
+
+const secoes = [
+  { arquivo: "educacao-plano-municipal-de-educacao.json", id: "edu-plano" },
+  { arquivo: "educacao-creches-publicas.json", id: "edu-creches" },
+  { arquivo: "educacao-conselho-municipal-de-educacao.json", id: "edu-conselho" },
+  { arquivo: "educacao-atas-do-conselho.json", id: "edu-atas" },
+  { arquivo: "saude-plano-municipal-de-saude.json", id: "saude-plano" },
+  { arquivo: "saude-servicos.json", id: "saude-servicos" },
+  { arquivo: "saude-relatorio-de-gestao-municipal-de-saude.json", id: "saude-gestao" },
+  { arquivo: "saude-conselho-municipal-saude.json", id: "saude-conselho" },
+  { arquivo: "saude-atas-do-conselho.json", id: "saude-atas" },
+  { arquivo: "assitencia-social-conselho-municipal-de-assistencia-social.json", id: "as-conselho" },
+  { arquivo: "assitencia-social-atas-do-conselho.json", id: "as-atas" },
+];
+
+const dadosCarregados = {};
+
+function renderizar(elementoId, registros, filtro) {
+  const alvo = document.getElementById(elementoId);
+  const termo = (filtro || "").toLowerCase();
+  const filtrados = registros.filter((r) => !termo || (r["Descrição"] || "").toLowerCase().includes(termo));
+
+  if (registros.length === 0) {
+    alvo.innerHTML = '<div class="vazio">Nenhum registro publicado ainda.</div>';
+    return;
+  }
+  if (filtrados.length === 0) {
+    alvo.innerHTML = '<div class="vazio">Nenhum resultado para essa busca.</div>';
+    return;
+  }
+
+  alvo.innerHTML = filtrados
+    .map((r) => {
+      const periodo = [r["Mês"], r["Exercício"]].filter(Boolean).join(" de ");
+      return `<div class="item-simples"><div class="periodo">${periodo || "-"}</div>${r["Descrição"] || ""}</div>`;
+    })
+    .join("");
+}
+
+async function carregarSecao(arquivo, elementoId) {
+  try {
+    const resposta = await fetch(BASE + arquivo);
+    if (!resposta.ok) throw new Error("Falha ao carregar.");
+    const registros = await resposta.json();
+    dadosCarregados[elementoId] = registros;
+    renderizar(elementoId, registros, "");
+  } catch (erro) {
+    document.getElementById(elementoId).innerHTML = '<div class="vazio">Não foi possível carregar os dados agora.</div>';
+    console.error(erro);
+  }
+}
+
+document.getElementById("busca").addEventListener("input", (evento) => {
+  const termo = evento.target.value;
+  secoes.forEach((s) => {
+    if (dadosCarregados[s.id]) renderizar(s.id, dadosCarregados[s.id], termo);
+  });
+});
+
+secoes.forEach((s) => carregarSecao(s.arquivo, s.id));
+</script>
+
+</body>
+</html>
