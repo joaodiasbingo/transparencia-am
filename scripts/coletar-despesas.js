@@ -80,6 +80,10 @@ const AREAS = [
       { id: 2162, nome: "obras-paralisadas" },
     ],
   },
+  {
+    segmento: "renuncia-receitas",
+    subcategorias: [{ id: 1611, nome: "renuncias-fiscais" }],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
