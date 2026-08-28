@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Receitas de Nhamundá | Portal de Transparência Regional</title>
+<style>
+  :root {
+    --rio: #0b5d5a;
+    --rio-escuro: #073e3c;
+    --areia: #f6f2e9;
+    --texto: #23302f;
+    --texto-suave: #5b6b69;
+    --borda: #dcd5c4;
+    --card: #ffffff;
+    --verde-valor: #146b52;
+    --dourado: #a4772e;
+    --dourado-fundo: #fbf3e3;
+    --dourado-borda: #edd9ae;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--areia);
+    color: var(--texto);
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  header {
+    background: var(--rio-escuro);
+    color: #fff;
+    padding: 28px 20px 24px;
+  }
+  header .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #a9d6cf;
+    margin: 0 0 6px;
+  }
+  header h1 { margin: 0; font-size: 26px; font-weight: 700; }
+  header p { margin: 8px 0 0; color: #cfe6e1; font-size: 15px; max-width: 640px; }
+  main { max-width: 820px; margin: 0 auto; padding: 20px 16px 60px; }
+  .carregando, .vazio { text-align: center; color: var(--texto-suave); padding: 40px 0; font-size: 14px; }
+  .resumo-total {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .resumo-total .rotulo { font-size: 13px; color: var(--texto-suave); margin-bottom: 4px; }
+  .resumo-total .valor { font-size: 32px; font-weight: 800; color: var(--verde-valor); }
+  .resumo-total .periodo { font-size: 12px; color: var(--texto-suave); margin-top: 4px; }
+
+  .secao-emendas {
+    background: var(--dourado-fundo);
+    border: 1px solid var(--dourado-borda);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 28px;
+  }
+  .secao-emendas h2 { margin: 0 0 4px; font-size: 17px; color: var(--dourado); }
+  .secao-emendas .subtitulo { font-size: 13px; color: #8a6a2f; margin-bottom: 14px; }
+  .emenda-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px solid var(--dourado-borda);
+  }
+  .emenda-item:first-of-type { border-top: none; }
+  .emenda-item .origem { font-size: 13px; color: #6b5323; }
+  .emenda-item .valor { font-weight: 700; color: var(--dourado); white-space: nowrap; }
+
+  .mes-card {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .mes-card .rotulo-mes { font-weight: 700; font-size: 15px; }
+  .mes-card .contagem { font-size: 12px; color: var(--texto-suave); margin-top: 2px; }
+  .mes-card .valor-mes { font-weight: 800; font-size: 17px; color: var(--verde-valor); white-space: nowrap; }
+  .barra-fundo { background: #eef5f3; border-radius: 6px; height: 6px; margin-top: 10px; overflow: hidden; }
+  .barra-preenchida { background: var(--rio); height: 100%; border-radius: 6px; }
+  .mes-bloco { margin-bottom: 4px; }
+  h2.ano {
+    font-size: 18px;
+    margin: 28px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--rio);
+    color: var(--rio-escuro);
+  }
+  .rodape-nota { font-size: 12px; color: var(--texto-suave); margin-top: 30px; text-align: center; }
+  a.link-oficial { color: var(--rio-escuro); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Prefeitura Municipal de Nhamundá &middot; Amazonas</p>
+  <h1>Receitas municipais</h1>
+  <p>Valores efetivamente arrecadados pela prefeitura, mês a mês, coletados automaticamente do Portal da Transparência oficial de Nhamundá.</p>
+</header>
+
+<main>
+
+  <div id="conteudo">
+    <div class="carregando">Carregando dados de receitas...</div>
+  </div>
+
+  <p class="rodape-nota">
+    Dados coletados automaticamente, uma vez por mês, direto do
+    <a class="link-oficial" href="https://transparencia.diretoriodigital.inf.br/client-page/pm-nhamunda" target="_blank" rel="noopener">Portal da Transparência oficial de Nhamundá</a>.
+    Valores em fase de conferência: alguns meses ainda não têm o formato de leitura totalmente calibrado.
+  </p>
+
+</main>
+
+<script>
+const URL_DADOS = "https://raw.githubusercontent.com/joaodiasbingo/transparencia-am/main/data/receitas-listagem-de-receitas.json";
+
+function formatarMoeda(valor) {
+  return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+async function carregar() {
+  const conteudo = document.getElementById("conteudo");
+  try {
+    const resposta = await fetch(URL_DADOS);
+    if (!resposta.ok) throw new Error("Não foi possível carregar os dados.");
+    const registros = await resposta.json();
+
+    const confiaveis = registros.filter((r) => r.metodoDeCalculo === "receitas_arrecadadas");
+
+    if (confiaveis.length === 0) {
+      conteudo.innerHTML = '<div class="vazio">Ainda não há dados conferidos disponíveis. Volte em breve.</div>';
+      return;
+    }
+
+    const totalGeral = confiaveis.reduce((soma, r) => soma + (r.somaAproximada || 0), 0);
+    const maiorValor = Math.max(...confiaveis.map((r) => r.somaAproximada || 0));
+
+    let html = `
+      <div class="resumo-total">
+        <div class="rotulo">Total arrecadado (meses conferidos)</div>
+        <div class="valor">${formatarMoeda(totalGeral)}</div>
+        <div class="periodo">${confiaveis.length} mês(es) com dados conferidos</div>
+      </div>
+    `;
+
+    // Junta todas as emendas parlamentares encontradas em qualquer mês.
+    const todasAsEmendas = [];
+    registros.forEach((r) => {
+      (r.emendasParlamentares || []).forEach((e) => {
+        todasAsEmendas.push({ ...e, mes: r["Mês"], ano: r["Exercício"] });
+      });
+    });
+
+    if (todasAsEmendas.length > 0) {
+      const totalEmendas = todasAsEmendas.reduce((soma, e) => soma + e.valor, 0);
+      html += `
+        <div class="secao-emendas">
+          <h2>Emendas Parlamentares recebidas</h2>
+          <div class="subtitulo">${todasAsEmendas.length} emenda(s) encontrada(s) &middot; total de ${formatarMoeda(totalEmendas)}</div>
+      `;
+      todasAsEmendas.forEach((e) => {
+        html += `
+          <div class="emenda-item">
+            <div class="origem">${e.origem} <br><span style="opacity:0.7">${e.mes} de ${e.ano}</span></div>
+            <div class="valor">${formatarMoeda(e.valor)}</div>
+          </div>
+        `;
+      });
+      html += `</div>`;
+    }
+
+    const porAno = {};
+    confiaveis.forEach((r) => {
+      const ano = r["Exercício"] || "?";
+      if (!porAno[ano]) porAno[ano] = [];
+      porAno[ano].push(r);
+    });
+
+    Object.keys(porAno)
+      .sort((a, b) => b - a)
+      .forEach((ano) => {
+        html += `<h2 class="ano">${ano}</h2>`;
+        porAno[ano].forEach((r) => {
+          const valor = r.somaAproximada || 0;
+          const percentual = maiorValor ? Math.round((valor / maiorValor) * 100) : 0;
+          html += `
+            <div class="mes-bloco">
+              <div class="mes-card">
+                <div>
+                  <div class="rotulo-mes">${r["Mês"] || "-"}</div>
+                  <div class="contagem">${r.quantidadeDeValoresEncontrados || 0} lançamentos</div>
+                </div>
+                <div class="valor-mes">${formatarMoeda(valor)}</div>
+              </div>
+              <div class="barra-fundo"><div class="barra-preenchida" style="width:${percentual}%"></div></div>
+            </div>
+          `;
+        });
+      });
+
+    conteudo.innerHTML = html;
+  } catch (erro) {
+    conteudo.innerHTML = `<div class="vazio">Não foi possível carregar os dados agora. Tente novamente em instantes.</div>`;
+    console.error(erro);
+  }
+}
+
+carregar();
+</script>
+
+</body>
+</html>
