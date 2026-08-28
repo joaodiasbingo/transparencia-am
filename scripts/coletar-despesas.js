@@ -142,6 +142,12 @@ const PADROES_LINHA = [
     nome: "despesas_empenhadas",
     regex: /^\d+\s+[A-Z]{1,3}\s+\d{2}\/\d{2}\/\d{4}\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/,
   },
+  {
+    // Receitas (Arrecadações): tipo natureza especificacao data CRÉDITO banco-conta
+    // valor_arrecadado valor_deduzido valor_anulado total_liquido
+    nome: "receitas_arrecadadas",
+    regex: /\d{2}\/\d{2}\/\d{4}\s+CR[ÉE]DITO\s+.*\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}$/,
+  },
 ];
 
 function extrairValoresDeLinhasEstruturadas(texto) {
