@@ -93,6 +93,16 @@ const AREAS = [
       { id: 4822, nome: "atas-do-conselho" },
     ],
   },
+  {
+    segmento: "saude",
+    subcategorias: [
+      { id: 1612, nome: "plano-municipal-de-saude" },
+      { id: 2174, nome: "servicos" },
+      { id: 4818, nome: "atas-do-conselho" },
+      { id: 1614, nome: "relatorio-de-gestao-municipal-de-saude" },
+      { id: 4817, nome: "conselho-municipal-saude" },
+    ],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
