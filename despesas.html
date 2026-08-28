@@ -95,12 +95,13 @@
     border: 1px solid var(--borda);
     border-radius: 14px;
     padding: 16px 18px;
-    margin-bottom: 12px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
+    cursor: pointer;
   }
+  .mes-card.tem-detalhe:hover { border-color: var(--rio); }
   .mes-card .rotulo-mes {
     font-weight: 700;
     font-size: 15px;
@@ -128,7 +129,7 @@
     height: 100%;
     border-radius: 6px;
   }
-  .mes-bloco { margin-bottom: 4px; }
+  .mes-bloco { margin-bottom: 12px; }
   h2.ano {
     font-size: 18px;
     margin: 28px 0 12px;
@@ -146,6 +147,38 @@
     color: var(--rio-escuro);
     font-weight: 600;
   }
+  .painel-detalhe {
+    display: none;
+    margin-top: 8px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: #fbfaf7;
+    max-height: 420px;
+    overflow-y: auto;
+  }
+  .painel-detalhe.aberto { display: block; }
+  .campo-busca-detalhe {
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-bottom: 1px solid var(--borda);
+    font-size: 13px;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    background: #fbfaf7;
+  }
+  .lancamento {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee6d8;
+    font-size: 12px;
+  }
+  .lancamento .credor { color: var(--texto); }
+  .lancamento .data-lanc { color: var(--texto-suave); font-size: 11px; }
+  .lancamento .valor-lanc { font-weight: 700; color: var(--verde-valor); white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -153,7 +186,7 @@
 <header>
   <p class="eyebrow">Prefeitura Municipal de Nhamundá &middot; Amazonas</p>
   <h1>Despesas municipais</h1>
-  <p>Valores efetivamente pagos pela prefeitura, mês a mês, coletados automaticamente do Portal da Transparência oficial de Nhamundá.</p>
+  <p>Valores efetivamente pagos pela prefeitura, mês a mês, coletados automaticamente do Portal da Transparência oficial de Nhamundá. Clique num mês para ver cada lançamento.</p>
 </header>
 
 <main>
@@ -177,6 +210,46 @@ function formatarMoeda(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
+// Tenta extrair só o nome do credor de dentro da linha bruta do relatório.
+// O formato típico é: <numero> <data> <valores...> <numero_empenho>
+// <recurso> <funcional> <programa> <ativ> <natureza_da_despesa> <CREDOR> <org/unid>
+function extrairCredor(linha) {
+  const m = linha.match(/\d\.\d{1,2}\.\d{2}\.\d{2}\.\d{2}\.\d{2}\.\d{2}\s+([A-ZÀ-Ÿ0-9À-Ÿ&.\-\s]+?)\s+\d{2}\.\d{3}$/);
+  return m ? m[1].trim() : linha;
+}
+
+function renderizarLancamentos(lancamentos, containerId) {
+  const alvo = document.getElementById(containerId);
+  const termo = (document.getElementById("busca-" + containerId)?.value || "").toLowerCase();
+  const filtrados = lancamentos.filter(
+    (l) => !termo || l.linha.toLowerCase().includes(termo)
+  );
+  const listaHtml = filtrados
+    .slice(0, 500)
+    .map(
+      (l) => `
+        <div class="lancamento">
+          <div>
+            <div class="credor">${extrairCredor(l.linha)}</div>
+            <div class="data-lanc">${l.data || ""}</div>
+          </div>
+          <div class="valor-lanc">${formatarMoeda(l.valor)}</div>
+        </div>
+      `
+    )
+    .join("");
+  const avisoLimite =
+    filtrados.length > 500
+      ? `<div style="padding:8px 12px;font-size:11px;color:#8a6a2f;">Mostrando os 500 primeiros de ${filtrados.length} lançamentos. Use a busca para refinar.</div>`
+      : "";
+  alvo.querySelector(".lista-lancamentos").innerHTML = listaHtml + avisoLimite;
+}
+
+function alternarDetalhe(containerId) {
+  const painel = document.getElementById(containerId);
+  painel.classList.toggle("aberto");
+}
+
 async function carregar() {
   const conteudo = document.getElementById("conteudo");
   try {
@@ -184,9 +257,6 @@ async function carregar() {
     if (!resposta.ok) throw new Error("Não foi possível carregar os dados.");
     const registros = await resposta.json();
 
-    // Usa os registros com método de cálculo preciso já calibrado
-    // (despesas_liquidadas ou despesas_empenhadas) - os outros tipos ainda
-    // estão em calibração.
     const liquidadas = registros.filter(
       (r) =>
         r.metodoDeCalculo === "despesas_liquidadas" &&
@@ -209,7 +279,6 @@ async function carregar() {
       </div>
     `;
 
-    // Agrupa por ano
     const porAno = {};
     liquidadas.forEach((r) => {
       const ano = r["Exercício"] || "?";
@@ -217,6 +286,7 @@ async function carregar() {
       porAno[ano].push(r);
     });
 
+    let indice = 0;
     Object.keys(porAno)
       .sort((a, b) => b - a)
       .forEach((ano) => {
@@ -224,22 +294,48 @@ async function carregar() {
         porAno[ano].forEach((r) => {
           const valor = r.somaAproximada || 0;
           const percentual = maiorValor ? Math.round((valor / maiorValor) * 100) : 0;
+          const temDetalhe = r.lancamentos && r.lancamentos.length > 0;
+          const idDetalhe = `detalhe-${indice}`;
+          indice++;
+
           html += `
             <div class="mes-bloco">
-              <div class="mes-card">
+              <div class="mes-card ${temDetalhe ? "tem-detalhe" : ""}" ${temDetalhe ? `onclick="alternarDetalhe('${idDetalhe}')"` : ""}>
                 <div>
-                  <div class="rotulo-mes">${r["Mês"] || "-"}</div>
+                  <div class="rotulo-mes">${r["Mês"] || "-"} ${temDetalhe ? "▾" : ""}</div>
                   <div class="contagem">${r.quantidadeDeValoresEncontrados || 0} lançamentos</div>
                 </div>
                 <div class="valor-mes">${formatarMoeda(valor)}</div>
               </div>
               <div class="barra-fundo"><div class="barra-preenchida" style="width:${percentual}%"></div></div>
+              ${
+                temDetalhe
+                  ? `
+                <div class="painel-detalhe" id="${idDetalhe}">
+                  <input type="text" class="campo-busca-detalhe" id="busca-${idDetalhe}" placeholder="Buscar por credor..." oninput="renderizarLancamentos(window.__lancamentos['${idDetalhe}'], '${idDetalhe}')">
+                  <div class="lista-lancamentos"></div>
+                </div>
+              `
+                  : ""
+              }
             </div>
           `;
+
+          if (temDetalhe) {
+            window.__lancamentos = window.__lancamentos || {};
+            window.__lancamentos[idDetalhe] = r.lancamentos;
+          }
         });
       });
 
     conteudo.innerHTML = html;
+
+    // Preenche os painéis de detalhe já formatados (sem precisar clicar antes).
+    if (window.__lancamentos) {
+      Object.keys(window.__lancamentos).forEach((id) => {
+        renderizarLancamentos(window.__lancamentos[id], id);
+      });
+    }
   } catch (erro) {
     conteudo.innerHTML = `<div class="vazio">Não foi possível carregar os dados agora. Tente novamente em instantes.</div>`;
     console.error(erro);
