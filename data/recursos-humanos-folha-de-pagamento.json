@@ -1,0 +1,257 @@
+[
+  {
+    "_linhaIndice": 0,
+    "Exercício": "2025",
+    "Mês": "Junho",
+    "Descrição": "Folha de Pagamento - Junho de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/07/recursos-humanos/folha_de_pagamento/edition20250714154143-fmWssJ.txt",
+    "somaAproximada": 23900120.56,
+    "quantidadeDeValoresEncontrados": 11438,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 1,
+    "Exercício": "2025",
+    "Mês": "Maio",
+    "Descrição": "Folha de Pagamento - Maio de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/05/recursos-humanos/folha_de_pagamento/edition20250602141348-gNZoWG.txt",
+    "somaAproximada": 23755181.18,
+    "quantidadeDeValoresEncontrados": 11375,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 2,
+    "Exercício": "2025",
+    "Mês": "Abril",
+    "Descrição": "Folha de Pagamento - Abril de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/04/recursos-humanos/folha_de_pagamento/edition20250602141443-Alhh94.txt",
+    "somaAproximada": 23709534.16,
+    "quantidadeDeValoresEncontrados": 11333,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 3,
+    "Exercício": "2025",
+    "Mês": "Março",
+    "Descrição": "Folha de Pagamento - Complementar - Março de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/03/recursos-humanos/folha_de_pagamento/edition20250602141338-YIkyGi.txt",
+    "somaAproximada": 13245.78,
+    "quantidadeDeValoresEncontrados": 21,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 4,
+    "Exercício": "2025",
+    "Mês": "Março",
+    "Descrição": "Folha de Pagamento - Março de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/03/recursos-humanos/folha_de_pagamento/edition20250602141337-q146JI.txt",
+    "somaAproximada": 23393592.38,
+    "quantidadeDeValoresEncontrados": 11144,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 5,
+    "Exercício": "2025",
+    "Mês": "Fevereiro",
+    "Descrição": "Folha de Pagamento - Complementar - Fevereiro de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/02/recursos-humanos/folha_de_pagamento/edition20250602141437-QHXhj1.txt",
+    "somaAproximada": 57289.72,
+    "quantidadeDeValoresEncontrados": 21,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 6,
+    "Exercício": "2025",
+    "Mês": "Fevereiro",
+    "Descrição": "Folha de Pagamento - Fevereiro de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/02/recursos-humanos/folha_de_pagamento/edition20250602141437-Tdvi8A.txt",
+    "somaAproximada": 22352605.02,
+    "quantidadeDeValoresEncontrados": 11263,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 7,
+    "Exercício": "2025",
+    "Mês": "Janeiro",
+    "Descrição": "Folha de Pagamento - Janeiro de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/01/recursos-humanos/folha_de_pagamento/edition20250602141412-RdCt3w.txt",
+    "somaAproximada": 16964909.1,
+    "quantidadeDeValoresEncontrados": 7896,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 8,
+    "Exercício": "2025",
+    "Mês": "Janeiro",
+    "Descrição": "Folha de Pagamento - Complementar - Janeiro de 2025",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/01/recursos-humanos/folha_de_pagamento/edition20250602141412-oXiJWK.txt",
+    "somaAproximada": 1519675.58,
+    "quantidadeDeValoresEncontrados": 1519,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 9,
+    "Exercício": "2024",
+    "Mês": "Dezembro",
+    "Descrição": "Folha de Pagamento - Dezembro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/12/recursos-humanos/folha_de_pagamento/edition20250319105003-bgMJKW.txt",
+    "somaAproximada": 19344746.4,
+    "quantidadeDeValoresEncontrados": 10740,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 10,
+    "Exercício": "2024",
+    "Mês": "Novembro",
+    "Descrição": "Folha de Pagamento - Complementar - Novembro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/11/recursos-humanos/folha_de_pagamento/edition20250319104953-8m5alH.txt",
+    "somaAproximada": 8900.15,
+    "quantidadeDeValoresEncontrados": 20,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 11,
+    "Exercício": "2024",
+    "Mês": "Novembro",
+    "Descrição": "Folha de Pagamento - Novembro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/11/recursos-humanos/folha_de_pagamento/edition20250319104954-PxEwJg.txt",
+    "somaAproximada": 25663898.87,
+    "quantidadeDeValoresEncontrados": 15600,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 12,
+    "Exercício": "2024",
+    "Mês": "Outubro",
+    "Descrição": "Folha de Pagamento - Outubro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/10/recursos-humanos/folha_de_pagamento/edition20241111111118-wOODSd.txt",
+    "somaAproximada": 27756942.88,
+    "quantidadeDeValoresEncontrados": 24518,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 13,
+    "Exercício": "2024",
+    "Mês": "Outubro",
+    "Descrição": "Folha de Pagamento - 13º Salário - Outubro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/10/recursos-humanos/folha_de_pagamento/edition20241111111117-0rNapV.txt",
+    "somaAproximada": 36828.9,
+    "quantidadeDeValoresEncontrados": 20,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 14,
+    "Exercício": "2024",
+    "Mês": "Setembro",
+    "Descrição": "Folha de Pagamento - Setembro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/09/recursos-humanos/folha_de_pagamento/edition20241105104830-zhXkQq.txt",
+    "somaAproximada": 24872970.94,
+    "quantidadeDeValoresEncontrados": 15861,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 15,
+    "Exercício": "2024",
+    "Mês": "Agosto",
+    "Descrição": "Folha de Pagamento - Adiantamento 13º - Agosto de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/08/recursos-humanos/folha_de_pagamento/edition20241105104813-ywfhem.txt",
+    "somaAproximada": 2269508.1,
+    "quantidadeDeValoresEncontrados": 2158,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 16,
+    "Exercício": "2024",
+    "Mês": "Agosto",
+    "Descrição": "Folha de Pagamento - 13º Salário - Setembro de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/08/recursos-humanos/folha_de_pagamento/edition20241105104812-ua3PKT.txt",
+    "somaAproximada": 28989.82,
+    "quantidadeDeValoresEncontrados": 18,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 17,
+    "Exercício": "2024",
+    "Mês": "Agosto",
+    "Descrição": "Folha de Pagamento - Agosto de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/08/recursos-humanos/folha_de_pagamento/edition20241105104813-UQrl5v.txt",
+    "somaAproximada": 24656603.86,
+    "quantidadeDeValoresEncontrados": 15816,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 18,
+    "Exercício": "2024",
+    "Mês": "Julho",
+    "Descrição": "Folha de Pagamento - Julho de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/07/recursos-humanos/folha_de_pagamento/edition20241003093925-q9bqA8.txt",
+    "somaAproximada": 25594319.75,
+    "quantidadeDeValoresEncontrados": 16453,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 19,
+    "Exercício": "2024",
+    "Mês": "Junho",
+    "Descrição": "Folha de Pagamento - Mensal e Férias - Junho de 2024",
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/06/recursos-humanos/folha_de_pagamento/edition20240705123318-nFjLk8.txt",
+    "somaAproximada": 25135768.69,
+    "quantidadeDeValoresEncontrados": 16094,
+    "metodoDeCalculo": "aproximado_generico"
+  },
+  {
+    "_linhaIndice": 20,
+    "Exercício": "2024",
+    "Mês": "Maio",
+    "Descrição": "Folha de Pagamento - Mensal e Férias - Maio de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 21,
+    "Exercício": "2024",
+    "Mês": "Maio",
+    "Descrição": "Folha de Pagamento - 13º Salário - Maio de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 22,
+    "Exercício": "2024",
+    "Mês": "Abril",
+    "Descrição": "Folha de Pagamento  - Abril de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 23,
+    "Exercício": "2024",
+    "Mês": "Março",
+    "Descrição": "Folha de Pagamento - Mensal e Férias - Março de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 24,
+    "Exercício": "2024",
+    "Mês": "Março",
+    "Descrição": "Folha de Pagamento - Complementar - Março de 2024",
+    "Anexos": "+1"
+  }
+]
