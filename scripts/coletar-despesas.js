@@ -73,6 +73,13 @@ const AREAS = [
       { id: 2160, nome: "pagamentos" },
     ],
   },
+  {
+    segmento: "obras",
+    subcategorias: [
+      { id: 2161, nome: "obras" },
+      { id: 2162, nome: "obras-paralisadas" },
+    ],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
