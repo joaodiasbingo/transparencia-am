@@ -84,6 +84,15 @@ const AREAS = [
     segmento: "renuncia-receitas",
     subcategorias: [{ id: 1611, nome: "renuncias-fiscais" }],
   },
+  {
+    segmento: "educacao",
+    subcategorias: [
+      { id: 1613, nome: "plano-municipal-de-educacao" },
+      { id: 2176, nome: "creches-publicas" },
+      { id: 4821, nome: "conselho-municipal-de-educacao" },
+      { id: 4822, nome: "atas-do-conselho" },
+    ],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
