@@ -406,6 +406,23 @@ async function main() {
       }
 
       const arquivoSaida = path.join(PASTA_SAIDA, `${area.segmento}-${subcategoria.nome}.json`);
+
+      // Proteção: se essa coleta veio vazia mas já existe um arquivo com
+      // dados de uma execução anterior, mantém o arquivo antigo em vez de
+      // apagar dados bons por causa de uma instabilidade passageira do
+      // portal nessa execução específica.
+      if (registros.length === 0 && fs.existsSync(arquivoSaida)) {
+        try {
+          const anterior = JSON.parse(fs.readFileSync(arquivoSaida, "utf-8"));
+          if (Array.isArray(anterior) && anterior.length > 0) {
+            console.log(`  Coleta veio vazia, mas já existia dado bom - mantendo o arquivo anterior (${anterior.length} registro(s)).`);
+            continue;
+          }
+        } catch {
+          // Se o arquivo anterior estiver corrompido, segue e sobrescreve normalmente.
+        }
+      }
+
       fs.writeFileSync(arquivoSaida, JSON.stringify(registros, null, 2), "utf-8");
       console.log(`  Salvo em ${arquivoSaida}`);
     }
