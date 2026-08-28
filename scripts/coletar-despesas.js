@@ -48,6 +48,13 @@ const AREAS = [
     segmento: "recursos-humanos",
     subcategorias: [{ id: 1595, nome: "folha-de-pagamento" }],
   },
+  {
+    segmento: "diarias",
+    subcategorias: [
+      { id: 1598, nome: "listagem-de-diarias" },
+      { id: 1599, nome: "tabela-de-valores-de-diarias" },
+    ],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
@@ -166,6 +173,14 @@ const PADROES_LINHA = [
     // hierarquia contábil se repetem, então é melhor usar só essa linha.
     nome: "transferencias_recebidas",
     regex: /Total Geral\s*:?\s*([\d.]+,\d{2})\s+[\d.]+,\d{2}/,
+  },
+  {
+    // Folha de Pagamento: o relatório já traz "Totais gerais" no final, com
+    // Salário contratual, Salário família, Total proventos, Previdência,
+    // IRRF, Total descontos, Líquido (nessa ordem) - usamos o Total de
+    // proventos (valor bruto pago em salários).
+    nome: "folha_pagamento",
+    regex: /Totais gerais:\s*R\$\s*[\d.]+,\d{2}\s*R\$\s*[\d.]+,\d{2}\s*R\$\s*([\d.]+,\d{2})/,
   },
 ];
 
