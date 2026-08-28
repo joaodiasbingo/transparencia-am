@@ -240,6 +240,15 @@ const PADROES_LINHA = [
     nome: "folha_pagamento",
     regex: /Totais gerais:\s*R\$\s*[\d.]+,\d{2}\s*R\$\s*[\d.]+,\d{2}\s*R\$\s*([\d.]+,\d{2})/,
   },
+  {
+    // Folha de Pagamento - linha por servidor: codigo - subcodigo NOME
+    // Salário_contratual Salário_família Total_proventos Previdência IRRF
+    // Total_descontos Líquido. Usamos o Total de proventos de cada um -
+    // isso também vira o detalhamento por servidor, além do total do mês.
+    nome: "folha_pagamento",
+    regex: /^\d+\s*-\s*\d+\s+[A-ZÀ-ÿ][A-ZÀ-ÿ.\s]*?\s+R\$\s*[\d.]+,\d{2}\s+R\$\s*[\d.]+,\d{2}\s+R\$\s*([\d.]+,\d{2})\s+R\$\s*[\d.]+,\d{2}\s+R\$\s*[\d.]+,\d{2}\s+R\$\s*[\d.]+,\d{2}\s+R\$\s*[\d.]+,\d{2}$/,
+    detalhado: true,
+  },
 ];
 
 // LIMITE_LANCAMENTOS_DETALHADOS evita que um relatório com dezenas de
