@@ -156,6 +156,13 @@ const PADROES_LINHA = [
     nome: "receitas_arrecadadas",
     regex: /\d{2}\/\d{2}\/\d{4}\s+CR[ÉE]DITO\s+.*\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}$/,
   },
+  {
+    // Transferências (Anexo TC 06): o relatório já traz uma linha "Total
+    // Geral" com o total do mês pronto - os valores intermediários da
+    // hierarquia contábil se repetem, então é melhor usar só essa linha.
+    nome: "transferencias_recebidas",
+    regex: /Total Geral\s*:?\s*([\d.]+,\d{2})\s+[\d.]+,\d{2}/,
+  },
 ];
 
 function extrairValoresDeLinhasEstruturadas(texto) {
