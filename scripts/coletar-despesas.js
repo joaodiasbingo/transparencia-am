@@ -55,6 +55,16 @@ const AREAS = [
       { id: 1599, nome: "tabela-de-valores-de-diarias" },
     ],
   },
+  {
+    segmento: "licitacoes",
+    subcategorias: [
+      { id: 1780, nome: "editais" },
+      { id: 1781, nome: "editais-em-aberto" },
+      { id: 2157, nome: "plano-de-contratacoes" },
+      { id: 2158, nome: "relacao-de-licitantes" },
+      { id: 1838, nome: "outros" },
+    ],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
