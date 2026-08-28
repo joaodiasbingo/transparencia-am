@@ -116,6 +116,9 @@
     <div class="carregando">Carregando dados de receitas...</div>
   </div>
 
+  <h2 class="ano">Renúncias Fiscais</h2>
+  <div id="renuncias"><div class="carregando">Carregando...</div></div>
+
   <p class="rodape-nota">
     Dados coletados automaticamente, uma vez por mês, direto do
     <a class="link-oficial" href="https://transparencia.diretoriodigital.inf.br/client-page/pm-nhamunda" target="_blank" rel="noopener">Portal da Transparência oficial de Nhamundá</a>.
@@ -219,6 +222,28 @@ async function carregar() {
 }
 
 carregar();
+
+async function carregarRenuncias() {
+  const alvo = document.getElementById("renuncias");
+  try {
+    const resposta = await fetch("https://raw.githubusercontent.com/joaodiasbingo/transparencia-am/main/data/renuncia-receitas-renuncias-fiscais.json");
+    if (!resposta.ok) throw new Error("Falha ao carregar.");
+    const registros = await resposta.json();
+    if (!registros || registros.length === 0) {
+      alvo.innerHTML = '<div class="vazio">Nenhuma renúncia fiscal publicada ainda.</div>';
+      return;
+    }
+    alvo.innerHTML = registros
+      .map((r) => {
+        const periodo = [r["Mês"], r["Exercício"]].filter(Boolean).join(" de ");
+        return `<div class="mes-card"><div><div class="rotulo-mes">${periodo || "-"}</div></div><div>${r["Descrição"] || ""}</div></div>`;
+      })
+      .join("");
+  } catch (erro) {
+    alvo.innerHTML = '<div class="vazio">Não foi possível carregar os dados agora.</div>';
+  }
+}
+carregarRenuncias();
 </script>
 
 </body>
