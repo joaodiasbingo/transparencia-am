@@ -166,18 +166,20 @@ function extrairValoresDeLinhasEstruturadas(texto) {
 }
 
 function extrairEmendasParlamentares(texto) {
+  // Junta tudo numa "linha" só, trocando quebras de linha por espaço - isso
+  // evita perder parte do nome do parlamentar quando ele quebra em duas
+  // linhas dentro do relatório original.
+  const achatado = texto.replace(/\r?\n/g, " ").replace(/\s+/g, " ");
   const REGEX_EMENDA =
-    /Emenda Parlamentar:\s*([^\n]+?)\s+\d{2}\/\d{2}\/\d{4}\s+CR[ÉE]DITO.*\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}$/;
+    /Emenda Parlamentar:\s*(\d+-[A-ZÀ-ÚÇ\s]+?)\s+\d{2}\/\d{2}\/\d{4}\s+CR[ÉE]DITO\s+.*?\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/g;
+
   const emendas = [];
-  for (const linha of texto.split(/\r?\n/)) {
-    if (!linha.includes("Emenda Parlamentar")) continue;
-    const encontrado = linha.trim().match(REGEX_EMENDA);
-    if (encontrado) {
-      emendas.push({
-        origem: encontrado[1].trim(),
-        valor: paraNumero(encontrado[2]),
-      });
-    }
+  let encontrado;
+  while ((encontrado = REGEX_EMENDA.exec(achatado)) !== null) {
+    emendas.push({
+      origem: encontrado[1].trim(),
+      valor: paraNumero(encontrado[2]),
+    });
   }
   return emendas;
 }
