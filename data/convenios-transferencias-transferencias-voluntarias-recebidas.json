@@ -69,9 +69,9 @@
     "Descrição": "Transferências Voluntárias Recebidas - Dezembro de 2024",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/12/convenios-transferencias/transferencias-recebidas/edition20250320104428-KHOUrO.txt",
-    "somaAproximada": 12200000,
-    "quantidadeDeValoresEncontrados": 23,
-    "metodoDeCalculo": "aproximado_generico"
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
   },
   {
     "_linhaIndice": 10,
@@ -80,9 +80,9 @@
     "Descrição": "Transferências Voluntárias Recebidas - Novembro de 2024",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/11/convenios-transferencias/transferencias-recebidas/edition20250320104437-Rye4xm.txt",
-    "somaAproximada": 22200000,
-    "quantidadeDeValoresEncontrados": 24,
-    "metodoDeCalculo": "aproximado_generico"
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
   },
   {
     "_linhaIndice": 11,
@@ -91,9 +91,9 @@
     "Descrição": "Transferências Voluntárias Recebidas - Outubro de 2024",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/10/convenios-transferencias/transferencias-recebidas/edition20241217101431-ubYnON.txt",
-    "somaAproximada": 22200000,
-    "quantidadeDeValoresEncontrados": 24,
-    "metodoDeCalculo": "aproximado_generico"
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
   },
   {
     "_linhaIndice": 12,
@@ -113,9 +113,9 @@
     "Descrição": "Transferências Voluntárias Recebidas - Agosto de 2024",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/08/convenios-transferencias/transferencias-recebidas/edition20241029111916-znrTjO.txt",
-    "somaAproximada": 32200000,
-    "quantidadeDeValoresEncontrados": 24,
-    "metodoDeCalculo": "aproximado_generico"
+    "somaAproximada": 1000000,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
   },
   {
     "_linhaIndice": 14,
@@ -124,9 +124,9 @@
     "Descrição": "Transferências Voluntárias Recebidas - Julho de 2024",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/07/convenios-transferencias/transferencias-recebidas/edition20241002081821-MRdxJi.txt",
-    "somaAproximada": 12200000,
-    "quantidadeDeValoresEncontrados": 22,
-    "metodoDeCalculo": "aproximado_generico"
+    "somaAproximada": 0,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
   },
   {
     "_linhaIndice": 15,
@@ -135,9 +135,9 @@
     "Descrição": "Transferências Voluntárias Recebidas - Junho de 2024",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/06/convenios-transferencias/transferencias-recebidas/edition20240819090148-376iPN.txt",
-    "somaAproximada": 17200000,
-    "quantidadeDeValoresEncontrados": 22,
-    "metodoDeCalculo": "aproximado_generico"
+    "somaAproximada": 500000,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
   },
   {
     "_linhaIndice": 16,
@@ -146,9 +146,9 @@
     "Descrição": "Transferências Voluntárias Recebidas - Maio de 2024",
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/05/convenios-transferencias/transferencias-recebidas/edition20240819085720-uyFVbu.txt",
-    "somaAproximada": 14400000,
-    "quantidadeDeValoresEncontrados": 20,
-    "metodoDeCalculo": "aproximado_generico"
+    "somaAproximada": 800000,
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
   },
   {
     "_linhaIndice": 17,
@@ -158,8 +158,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/04/convenios-transferencias/transferencias-recebidas/edition20240819085344-p3Qfx9.txt",
     "somaAproximada": 0,
-    "quantidadeDeValoresEncontrados": 4,
-    "metodoDeCalculo": "aproximado_generico"
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
   },
   {
     "_linhaIndice": 18,
@@ -169,8 +169,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/03/convenios-transferencias/transferencias-recebidas/edition20240819085002-ykt0VL.txt",
     "somaAproximada": 0,
-    "quantidadeDeValoresEncontrados": 4,
-    "metodoDeCalculo": "aproximado_generico"
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
   },
   {
     "_linhaIndice": 19,
@@ -180,8 +180,8 @@
     "Anexos": "+1",
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/02/convenios-transferencias/transferencias-recebidas/edition20240819084513-7Tam6V.txt",
     "somaAproximada": 0,
-    "quantidadeDeValoresEncontrados": 4,
-    "metodoDeCalculo": "aproximado_generico"
+    "quantidadeDeValoresEncontrados": 1,
+    "metodoDeCalculo": "transferencias_recebidas"
   },
   {
     "_linhaIndice": 20,
