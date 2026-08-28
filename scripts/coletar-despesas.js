@@ -103,6 +103,13 @@ const AREAS = [
       { id: 4817, nome: "conselho-municipal-saude" },
     ],
   },
+  {
+    segmento: "assitencia-social",
+    subcategorias: [
+      { id: 4823, nome: "conselho-municipal-de-assistencia-social" },
+      { id: 4824, nome: "atas-do-conselho" },
+    ],
+  },
 ];
 
 const PASTA_SAIDA = path.join(__dirname, "..", "data");
@@ -202,18 +209,21 @@ const PADROES_LINHA = [
   {
     // Despesas Liquidadas: numero data valor_liquidado valor_anulado descontos saldo ...
     nome: "despesas_liquidadas",
-    regex: /^\d+\s+\d{2}\/\d{2}\/\d{4}\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/,
+    regex: /^\d+\s+(\d{2}\/\d{2}\/\d{4})\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/,
+    detalhado: true,
   },
   {
     // Despesas Empenhadas: empenho tipo data empenhado anulado liquidado pago retido liquido a_pagar ...
     nome: "despesas_empenhadas",
-    regex: /^\d+\s+[A-Z]{1,3}\s+\d{2}\/\d{2}\/\d{4}\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/,
+    regex: /^\d+\s+[A-Z]{1,3}\s+(\d{2}\/\d{2}\/\d{4})\s+([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}/,
+    detalhado: true,
   },
   {
     // Receitas (Arrecadações): tipo natureza especificacao data CRÉDITO banco-conta
     // valor_arrecadado valor_deduzido valor_anulado total_liquido
     nome: "receitas_arrecadadas",
-    regex: /\d{2}\/\d{2}\/\d{4}\s+CR[ÉE]DITO\s+.*\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}$/,
+    regex: /(\d{2}\/\d{2}\/\d{4})\s+CR[ÉE]DITO\s+.*\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}$/,
+    detalhado: true,
   },
   {
     // Transferências (Anexo TC 06): o relatório já traz uma linha "Total
@@ -232,16 +242,35 @@ const PADROES_LINHA = [
   },
 ];
 
+// LIMITE_LANCAMENTOS_DETALHADOS evita que um relatório com dezenas de
+// milhares de linhas (como a Folha de Pagamento) deixe o arquivo de dados
+// gigante - só guardamos o detalhe linha a linha para relatórios com
+// volume razoável.
+const LIMITE_LANCAMENTOS_DETALHADOS = 2000;
+
 function extrairValoresDeLinhasEstruturadas(texto) {
-  let melhor = { nome: null, valores: [] };
+  let melhor = { nome: null, valores: [], lancamentos: null };
   for (const padrao of PADROES_LINHA) {
     const valores = [];
-    for (const linha of texto.split(/\r?\n/)) {
-      const encontrado = linha.trim().match(padrao.regex);
-      if (encontrado) valores.push(paraNumero(encontrado[1]));
+    const lancamentos = padrao.detalhado ? [] : null;
+    for (const linhaOriginal of texto.split(/\r?\n/)) {
+      const linha = linhaOriginal.trim();
+      const encontrado = linha.match(padrao.regex);
+      if (!encontrado) continue;
+
+      if (padrao.detalhado) {
+        // Quando o padrão captura data + valor (2 grupos), usa os dois;
+        // quando captura só o valor (1 grupo), a data fica de fora.
+        const data = encontrado.length > 2 ? encontrado[1] : null;
+        const valorTexto = encontrado.length > 2 ? encontrado[2] : encontrado[1];
+        valores.push(paraNumero(valorTexto));
+        lancamentos.push({ data, valor: paraNumero(valorTexto), linha });
+      } else {
+        valores.push(paraNumero(encontrado[1]));
+      }
     }
     if (valores.length > melhor.valores.length) {
-      melhor = { nome: padrao.nome, valores };
+      melhor = { nome: padrao.nome, valores, lancamentos };
     }
   }
   return melhor;
@@ -306,6 +335,10 @@ async function baixarESomarValores(url) {
         resultado.valores.reduce((soma, n) => soma + n, 0).toFixed(2)
       ),
       emendasParlamentares: emendas,
+      lancamentos:
+        resultado.lancamentos && resultado.lancamentos.length <= LIMITE_LANCAMENTOS_DETALHADOS
+          ? resultado.lancamentos
+          : null,
     };
   }
 
@@ -354,6 +387,9 @@ async function main() {
               registro.metodoDeCalculo = resumo.metodo;
               if (resumo.emendasParlamentares && resumo.emendasParlamentares.length > 0) {
                 registro.emendasParlamentares = resumo.emendasParlamentares;
+              }
+              if (resumo.lancamentos) {
+                registro.lancamentos = resumo.lancamentos;
               }
               console.log(`    Anexo lido: ${linkArquivo} (soma: ${resumo.somaAproximada}, método: ${resumo.metodo})`);
             } else {
