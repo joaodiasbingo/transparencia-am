@@ -72,10 +72,14 @@ async function carregar(arquivo, elementoId, destacar) {
       .map((r) => {
         const periodo = [r["Mês"], r["Exercício"]].filter(Boolean).join(" de ");
         const classe = destacar ? "item-alerta" : "item-simples";
+        const link = r.linkAnexo
+          ? `<a href="${r.linkAnexo}" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;font-size:12px;color:var(--rio);font-weight:600;">📄 Ver documento</a>`
+          : "";
         return `
           <div class="${classe}">
             <div class="periodo">${periodo || "-"}</div>
             ${r["Descrição"] || ""}
+            ${link}
           </div>
         `;
       })
