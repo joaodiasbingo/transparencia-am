@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convênios e Transferências de Nhamundá | Portal de Transparência Regional</title>
+<style>
+  :root {
+    --rio: #0b5d5a;
+    --rio-escuro: #073e3c;
+    --areia: #f6f2e9;
+    --texto: #23302f;
+    --texto-suave: #5b6b69;
+    --borda: #dcd5c4;
+    --card: #ffffff;
+    --verde-valor: #146b52;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--areia);
+    color: var(--texto);
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.5;
+  }
+  header {
+    background: var(--rio-escuro);
+    color: #fff;
+    padding: 28px 20px 24px;
+  }
+  header .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #a9d6cf;
+    margin: 0 0 6px;
+  }
+  header h1 { margin: 0; font-size: 26px; font-weight: 700; }
+  header p { margin: 8px 0 0; color: #cfe6e1; font-size: 15px; max-width: 640px; }
+  main { max-width: 820px; margin: 0 auto; padding: 20px 16px 60px; }
+  .carregando, .vazio { text-align: center; color: var(--texto-suave); padding: 24px 0; font-size: 14px; }
+
+  h2.secao {
+    font-size: 19px;
+    margin: 34px 0 6px;
+    color: var(--rio-escuro);
+    border-bottom: 2px solid var(--rio);
+    padding-bottom: 8px;
+  }
+  .secao-subtitulo { font-size: 13px; color: var(--texto-suave); margin-bottom: 16px; }
+
+  .mes-card {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+  .mes-card .rotulo-mes { font-weight: 700; font-size: 15px; }
+  .mes-card .periodo-mes { font-size: 12px; color: var(--texto-suave); margin-top: 2px; }
+  .mes-card .valor-mes { font-weight: 800; font-size: 16px; color: var(--verde-valor); white-space: nowrap; }
+  .mes-card .valor-zero { color: var(--texto-suave); font-weight: 600; }
+
+  .item-simples {
+    background: var(--card);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--texto);
+  }
+  .item-simples .periodo { font-size: 12px; color: var(--texto-suave); margin-bottom: 2px; }
+
+  .rodape-nota { font-size: 12px; color: var(--texto-suave); margin-top: 30px; text-align: center; }
+  a.link-oficial { color: var(--rio-escuro); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Prefeitura Municipal de Nhamundá &middot; Amazonas</p>
+  <h1>Convênios e Transferências</h1>
+  <p>Recursos recebidos e repassados por convênio, e acordos firmados pela prefeitura, coletados automaticamente do Portal da Transparência oficial.</p>
+</header>
+
+<main>
+
+  <h2 class="secao">Transferências Voluntárias Recebidas</h2>
+  <div class="secao-subtitulo">Dinheiro que Nhamundá recebeu de fora via convênio</div>
+  <div id="recebidas"><div class="carregando">Carregando...</div></div>
+
+  <h2 class="secao">Transferências Voluntárias Realizadas</h2>
+  <div class="secao-subtitulo">Dinheiro que a prefeitura repassou pra fora via convênio</div>
+  <div id="realizadas"><div class="carregando">Carregando...</div></div>
+
+  <h2 class="secao">Acordos Firmados</h2>
+  <div class="secao-subtitulo">Convênios e termos de cooperação assinados</div>
+  <div id="acordos"><div class="carregando">Carregando...</div></div>
+
+  <p class="rodape-nota">
+    Dados coletados automaticamente, uma vez por mês, direto do
+    <a class="link-oficial" href="https://transparencia.diretoriodigital.inf.br/client-page/pm-nhamunda" target="_blank" rel="noopener">Portal da Transparência oficial de Nhamundá</a>.
+    Alguns registros ainda não têm valor conferido - aparecem só como declaração ou documento.
+  </p>
+
+</main>
+
+<script>
+const BASE = "https://raw.githubusercontent.com/joaodiasbingo/transparencia-am/main/data/";
+
+function formatarMoeda(valor) {
+  return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+async function carregarSecao(arquivo, elementoId, metodoConfiavel) {
+  const alvo = document.getElementById(elementoId);
+  try {
+    const resposta = await fetch(BASE + arquivo);
+    if (!resposta.ok) throw new Error("Falha ao carregar.");
+    const registros = await resposta.json();
+
+    if (!registros || registros.length === 0) {
+      alvo.innerHTML = '<div class="vazio">Nenhum registro encontrado.</div>';
+      return;
+    }
+
+    let html = "";
+    registros.forEach((r) => {
+      const periodo = [r["Mês"], r["Exercício"]].filter(Boolean).join(" de ");
+      if (r.metodoDeCalculo === metodoConfiavel && typeof r.somaAproximada === "number") {
+        const valor = r.somaAproximada;
+        html += `
+          <div class="mes-card">
+            <div>
+              <div class="rotulo-mes">${periodo || "-"}</div>
+            </div>
+            <div class="valor-mes ${valor === 0 ? "valor-zero" : ""}">${valor === 0 ? "Sem novidades" : formatarMoeda(valor)}</div>
+          </div>
+        `;
+      } else {
+        html += `
+          <div class="item-simples">
+            <div class="periodo">${periodo || "-"}</div>
+            ${r["Descrição"] || ""}
+          </div>
+        `;
+      }
+    });
+
+    alvo.innerHTML = html;
+  } catch (erro) {
+    alvo.innerHTML = '<div class="vazio">Não foi possível carregar os dados agora.</div>';
+    console.error(erro);
+  }
+}
+
+carregarSecao("convenios-transferencias-transferencias-voluntarias-recebidas.json", "recebidas", "transferencias_recebidas");
+carregarSecao("convenios-transferencias-transferencias-voluntarias-realizadas.json", "realizadas", "transferencias_recebidas");
+carregarSecao("convenios-transferencias-acordos-firmados.json", "acordos", "transferencias_recebidas");
+</script>
+
+</body>
+</html>
