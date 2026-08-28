@@ -165,6 +165,23 @@ function extrairValoresDeLinhasEstruturadas(texto) {
   return melhor;
 }
 
+function extrairEmendasParlamentares(texto) {
+  const REGEX_EMENDA =
+    /Emenda Parlamentar:\s*([^\n]+?)\s+\d{2}\/\d{2}\/\d{4}\s+CR[ÉE]DITO.*\s([\d.]+,\d{2})\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}\s+[\d.]+,\d{2}$/;
+  const emendas = [];
+  for (const linha of texto.split(/\r?\n/)) {
+    if (!linha.includes("Emenda Parlamentar")) continue;
+    const encontrado = linha.trim().match(REGEX_EMENDA);
+    if (encontrado) {
+      emendas.push({
+        origem: encontrado[1].trim(),
+        valor: paraNumero(encontrado[2]),
+      });
+    }
+  }
+  return emendas;
+}
+
 async function baixarESomarValores(url) {
   const resposta = await fetch(url);
   if (!resposta.ok) throw new Error(`Falha ao baixar (status ${resposta.status})`);
@@ -179,6 +196,7 @@ async function baixarESomarValores(url) {
   }
 
   const resultado = extrairValoresDeLinhasEstruturadas(texto);
+  const emendas = extrairEmendasParlamentares(texto);
 
   if (resultado.valores.length > 0) {
     return {
@@ -187,6 +205,7 @@ async function baixarESomarValores(url) {
       somaAproximada: Number(
         resultado.valores.reduce((soma, n) => soma + n, 0).toFixed(2)
       ),
+      emendasParlamentares: emendas,
     };
   }
 
@@ -195,6 +214,7 @@ async function baixarESomarValores(url) {
     metodo: "aproximado_generico",
     quantidadeDeValoresEncontrados: valores.length,
     somaAproximada: Number(valores.reduce((soma, n) => soma + n, 0).toFixed(2)),
+    emendasParlamentares: emendas,
   };
 }
 
@@ -232,6 +252,9 @@ async function main() {
               registro.somaAproximada = resumo.somaAproximada;
               registro.quantidadeDeValoresEncontrados = resumo.quantidadeDeValoresEncontrados;
               registro.metodoDeCalculo = resumo.metodo;
+              if (resumo.emendasParlamentares && resumo.emendasParlamentares.length > 0) {
+                registro.emendasParlamentares = resumo.emendasParlamentares;
+              }
               console.log(`    Anexo lido: ${linkArquivo} (soma: ${resumo.somaAproximada}, método: ${resumo.metodo})`);
             } else {
               console.log(`    Linha ${registro._linhaIndice}: não encontrei link de anexo.`);
