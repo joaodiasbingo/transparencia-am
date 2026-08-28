@@ -25,13 +25,7 @@
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/05/receitas/listagem_de_receitas/edition20260729112935-1knxJl.txt",
     "somaAproximada": 15706875.57,
     "quantidadeDeValoresEncontrados": 594,
-    "metodoDeCalculo": "receitas_arrecadadas",
-    "emendasParlamentares": [
-      {
-        "origem": "202539260003-",
-        "valor": 495000
-      }
-    ]
+    "metodoDeCalculo": "receitas_arrecadadas"
   },
   {
     "_linhaIndice": 2,
@@ -42,13 +36,7 @@
     "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/04/receitas/listagem_de_receitas/edition20260622105928-84wDpD.txt",
     "somaAproximada": 17292911.43,
     "quantidadeDeValoresEncontrados": 267,
-    "metodoDeCalculo": "receitas_arrecadadas",
-    "emendasParlamentares": [
-      {
-        "origem": "202539260003-",
-        "valor": 495000
-      }
-    ]
+    "metodoDeCalculo": "receitas_arrecadadas"
   },
   {
     "_linhaIndice": 3,
