@@ -20,13 +20,32 @@
   .carregando, .vazio { text-align: center; color: var(--texto-suave); padding: 24px 0; font-size: 14px; }
   h2.secao { font-size: 19px; margin: 34px 0 6px; color: var(--rio-escuro); border-bottom: 2px solid var(--rio); padding-bottom: 8px; }
   .secao-subtitulo { font-size: 13px; color: var(--texto-suave); margin-bottom: 16px; }
-  .mes-card { background: var(--card); border: 1px solid var(--borda); border-radius: 14px; padding: 14px 18px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .mes-card {
+    background: var(--card); border: 1px solid var(--borda); border-radius: 14px;
+    padding: 14px 18px; display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; cursor: pointer;
+  }
+  .mes-card.tem-detalhe:hover { border-color: var(--rio); }
   .mes-card .rotulo-mes { font-weight: 700; font-size: 15px; }
   .mes-card .valor-mes { font-weight: 800; font-size: 16px; color: var(--verde-valor); white-space: nowrap; }
+  .mes-bloco { margin-bottom: 10px; }
   .item-simples { background: var(--card); border: 1px solid var(--borda); border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; font-size: 13px; color: var(--texto); }
   .item-simples .periodo { font-size: 12px; color: var(--texto-suave); margin-bottom: 2px; }
   .rodape-nota { font-size: 12px; color: var(--texto-suave); margin-top: 30px; text-align: center; }
   a.link-oficial { color: var(--rio-escuro); font-weight: 600; }
+
+  .painel-detalhe {
+    display: none; margin-top: 8px; border: 1px solid var(--borda); border-radius: 12px;
+    background: #fbfaf7; max-height: 420px; overflow-y: auto;
+  }
+  .painel-detalhe.aberto { display: block; }
+  .campo-busca-detalhe {
+    width: 100%; padding: 10px 12px; border: none; border-bottom: 1px solid var(--borda);
+    font-size: 13px; box-sizing: border-box; position: sticky; top: 0; background: #fbfaf7;
+  }
+  .lancamento { display: flex; justify-content: space-between; gap: 10px; padding: 8px 12px; border-bottom: 1px solid #eee6d8; font-size: 12px; }
+  .lancamento .credor { color: var(--texto); }
+  .lancamento .valor-lanc { font-weight: 700; color: var(--verde-valor); white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -34,7 +53,7 @@
 <header>
   <p class="eyebrow">Prefeitura Municipal de Nhamundá &middot; Amazonas</p>
   <h1>Pessoal e Diárias</h1>
-  <p>Folha de pagamento dos servidores e diárias pagas por viagens/deslocamentos a serviço da prefeitura.</p>
+  <p>Folha de pagamento dos servidores e diárias pagas por viagens/deslocamentos a serviço da prefeitura. Clique num mês pra ver o valor de cada servidor.</p>
 </header>
 
 <main>
@@ -65,7 +84,36 @@ function formatarMoeda(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
-async function carregarGenerico(arquivo, elementoId, metodoConfiavel) {
+// Extrai o nome do servidor de dentro da linha bruta da folha:
+// "1441 - 0 JOSE DA SILVA MIRANDA R$ 1.953,30 ..."
+function extrairNomeServidor(linha) {
+  const m = linha.match(/^\d+\s*-\s*\d+\s+([A-ZÀ-ÿ][A-ZÀ-ÿ.\s]*?)\s+R\$/);
+  return m ? m[1].trim() : linha;
+}
+
+function renderizarLancamentos(lancamentos, containerId) {
+  const alvo = document.getElementById(containerId);
+  const termo = (document.getElementById("busca-" + containerId)?.value || "").toLowerCase();
+  const filtrados = lancamentos.filter((l) => !termo || l.linha.toLowerCase().includes(termo));
+  const listaHtml = filtrados
+    .slice(0, 2000)
+    .map(
+      (l) => `
+        <div class="lancamento">
+          <div class="credor">${extrairNomeServidor(l.linha)}</div>
+          <div class="valor-lanc">${formatarMoeda(l.valor)}</div>
+        </div>
+      `
+    )
+    .join("");
+  alvo.querySelector(".lista-lancamentos").innerHTML = listaHtml;
+}
+
+function alternarDetalhe(containerId) {
+  document.getElementById(containerId).classList.toggle("aberto");
+}
+
+async function carregarGenerico(arquivo, elementoId, metodoConfiavel, comDetalhe) {
   const alvo = document.getElementById(elementoId);
   try {
     const resposta = await fetch(BASE + arquivo);
@@ -77,34 +125,66 @@ async function carregarGenerico(arquivo, elementoId, metodoConfiavel) {
       return;
     }
 
-    alvo.innerHTML = registros
-      .map((r) => {
-        const periodo = [r["Mês"], r["Exercício"]].filter(Boolean).join(" de ");
-        if (metodoConfiavel && r.metodoDeCalculo === metodoConfiavel && typeof r.somaAproximada === "number") {
-          return `
-            <div class="mes-card">
-              <div class="rotulo-mes">${periodo || "-"}</div>
+    let html = "";
+    let indice = 0;
+    registros.forEach((r) => {
+      const periodo = [r["Mês"], r["Exercício"]].filter(Boolean).join(" de ");
+      const ehConfiavel = metodoConfiavel && r.metodoDeCalculo === metodoConfiavel && typeof r.somaAproximada === "number";
+
+      if (ehConfiavel) {
+        const temDetalhe = comDetalhe && r.lancamentos && r.lancamentos.length > 0;
+        const idDetalhe = `detalhe-folha-${elementoId}-${indice}`;
+        indice++;
+
+        html += `
+          <div class="mes-bloco">
+            <div class="mes-card ${temDetalhe ? "tem-detalhe" : ""}" ${temDetalhe ? `onclick="alternarDetalhe('${idDetalhe}')"` : ""}>
+              <div class="rotulo-mes">${periodo || "-"} ${temDetalhe ? "▾" : ""}</div>
               <div class="valor-mes">${formatarMoeda(r.somaAproximada)}</div>
             </div>
-          `;
+            ${
+              temDetalhe
+                ? `
+              <div class="painel-detalhe" id="${idDetalhe}">
+                <input type="text" class="campo-busca-detalhe" id="busca-${idDetalhe}" placeholder="Buscar por servidor..." oninput="renderizarLancamentos(window.__lancamentosFolha['${idDetalhe}'], '${idDetalhe}')">
+                <div class="lista-lancamentos"></div>
+              </div>
+            `
+                : ""
+            }
+          </div>
+        `;
+
+        if (temDetalhe) {
+          window.__lancamentosFolha = window.__lancamentosFolha || {};
+          window.__lancamentosFolha[idDetalhe] = r.lancamentos;
         }
-        return `
+      } else {
+        html += `
           <div class="item-simples">
             <div class="periodo">${periodo || "-"}</div>
             ${r["Descrição"] || ""}
           </div>
         `;
-      })
-      .join("");
+      }
+    });
+
+    alvo.innerHTML = html;
+
+    if (window.__lancamentosFolha) {
+      Object.keys(window.__lancamentosFolha).forEach((id) => {
+        if (id.startsWith(`detalhe-folha-${elementoId}-`)) renderizarLancamentos(window.__lancamentosFolha[id], id);
+      });
+    }
   } catch (erro) {
     alvo.innerHTML = '<div class="vazio">Não foi possível carregar os dados agora.</div>';
     console.error(erro);
   }
 }
 
-carregarGenerico("recursos-humanos-folha-de-pagamento.json", "folha", "folha_pagamento");
-carregarGenerico("diarias-listagem-de-diarias.json", "diarias", null);
-carregarGenerico("diarias-tabela-de-valores-de-diarias.json", "tabela-diarias", null);
+carregarGenerico("recursos-humanos-folha-de-pagamento.json", "folha", "folha_pagamento", true);
+carregarGenerico("diarias-listagem-de-diarias.json", "diarias", null, false);
+carregarGenerico("diarias-tabela-de-valores-de-diarias.json", "tabela-diarias", null, false);
 </script>
 
 </body>
