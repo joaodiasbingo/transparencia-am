@@ -17,10 +17,10 @@ function paraNumero(valorTexto) {
 function extrairValor(texto, rotulo) {
   const indice = texto.indexOf(rotulo);
   if (indice === -1) return null;
-  const trecho = texto.slice(indice, indice + 600);
-  // Exige separador de milhar (pelo menos um ".XXX" antes da vírgula) -
-  // isso evita pegar por engano algum valor resumido/abreviado.
-  const match = trecho.match(/R\$\s*(\d{1,3}(?:\.\d{3})+,\d{2})/);
+  // Janela bem mais curta - só o suficiente pra pegar o número logo depois
+  // do rótulo, sem vazar pro campo seguinte da página.
+  const trecho = texto.slice(indice, indice + 150);
+  const match = trecho.match(/R\$\s*([\d.]+,\d{2})/);
   return match ? match[1] : null;
 }
 
@@ -51,7 +51,7 @@ async function main() {
   const valores = {
     transferidoAoMunicipio: extrairValor(texto, "Recursos transferidos apenas ao munic"),
     gastosDiretos: extrairValor(texto, "Gastos diretos do governo federal no munic"),
-    beneficiosCidadao: extrairValor(texto, "Benef"),
+    beneficiosCidadao: extrairValor(texto, "Benefícios aos cidadãos do munic"),
   };
 
   console.log(`Valores encontrados: ${JSON.stringify(valores)}`);
