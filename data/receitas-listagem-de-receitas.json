@@ -23721,34 +23721,54 @@
     "Exercício": "2024",
     "Mês": "Outubro",
     "Descrição": "Listagem de Receitas - Outubro de 2024",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/10/receitas/listagem_de_receitas/edition20241217101304-2l13Ss.txt",
+    "somaAproximada": 51013885.3,
+    "quantidadeDeValoresEncontrados": 1401,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 21,
     "Exercício": "2024",
     "Mês": "Setembro",
     "Descrição": "Listagem de Receitas - Setembro de 2024",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/09/receitas/listagem_de_receitas/edition20241112104934-8UQq00.txt",
+    "somaAproximada": 66102879.32,
+    "quantidadeDeValoresEncontrados": 1554,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 22,
     "Exercício": "2024",
     "Mês": "Agosto",
     "Descrição": "Listagem de Receitas - Agosto de 2024",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/08/receitas/listagem_de_receitas/edition20241029111811-uf2S8O.txt",
+    "somaAproximada": 67077268.2,
+    "quantidadeDeValoresEncontrados": 1383,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 23,
     "Exercício": "2024",
     "Mês": "Julho",
     "Descrição": "Listagem de Receitas - Julho de 2024",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/07/despesas/listagem-despesas/edition20241002081642-aiu785.txt",
+    "somaAproximada": 63867352.66,
+    "quantidadeDeValoresEncontrados": 1326,
+    "metodoDeCalculo": "aproximado_generico"
   },
   {
     "_linhaIndice": 24,
     "Exercício": "2024",
     "Mês": "Junho",
     "Descrição": "Listagem de Receitas - Junho de 2024",
-    "Anexos": "+1"
+    "Anexos": "+1",
+    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/06/receitas/listagem_de_receitas/edition20240819090116-Eh3h6E.txt",
+    "somaAproximada": 127139729.2,
+    "quantidadeDeValoresEncontrados": 1329,
+    "metodoDeCalculo": "aproximado_generico"
   }
 ]
