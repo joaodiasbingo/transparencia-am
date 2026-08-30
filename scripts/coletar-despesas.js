@@ -30,7 +30,7 @@ const AREAS = [
   {
     segmento: "receitas",
     subcategorias: [
-      { id: 1464, nome: "listagem-de-receitas" },
+      { id: 1464, nome: "listagem-de-receitas", limiteAnexos: 60 },
       { id: 1465, nome: "balancete-de-receitas" },
       { id: 2142, nome: "divida-ativa" },
       { id: 3412, nome: "receitas-royalties" },
@@ -382,8 +382,8 @@ async function main() {
         registros = await coletarTabela(aba, url);
         console.log(`  -> ${registros.length} relatório(s) encontrado(s) na tabela`);
 
-        const LIMITE_ANEXOS_POR_EXECUCAO = 20;
-        const registrosParaAbrir = registros.slice(0, LIMITE_ANEXOS_POR_EXECUCAO);
+        const limiteAnexos = subcategoria.limiteAnexos || 20;
+        const registrosParaAbrir = registros.slice(0, limiteAnexos);
 
         for (const registro of registrosParaAbrir) {
           try {
