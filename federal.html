@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repasses Federais para Nhamundá | Portal de Transparência Regional</title>
+<style>
+  :root {
+    --rio: #0b5d5a; --rio-escuro: #073e3c; --areia: #f6f2e9;
+    --texto: #23302f; --texto-suave: #5b6b69; --borda: #dcd5c4;
+    --card: #ffffff; --verde-valor: #146b52;
+    --alerta: #b4682a; --alerta-fundo: #fdf0e2; --alerta-borda: #f0d3ab;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--areia); color: var(--texto); font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; line-height: 1.5; }
+  header { background: var(--rio-escuro); color: #fff; padding: 28px 20px 24px; }
+  header .eyebrow { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: #a9d6cf; margin: 0 0 6px; }
+  header h1 { margin: 0; font-size: 26px; font-weight: 700; }
+  header p { margin: 8px 0 0; color: #cfe6e1; font-size: 15px; max-width: 640px; }
+  main { max-width: 820px; margin: 0 auto; padding: 20px 16px 60px; }
+  .carregando, .vazio { text-align: center; color: var(--texto-suave); padding: 40px 0; font-size: 14px; }
+
+  .cartoes { display: grid; gap: 14px; margin-top: 20px; }
+  .cartao {
+    background: var(--card); border: 1px solid var(--borda); border-radius: 16px;
+    padding: 20px;
+  }
+  .cartao .rotulo { font-size: 13px; color: var(--texto-suave); margin-bottom: 6px; }
+  .cartao .valor { font-size: 26px; font-weight: 800; color: var(--verde-valor); }
+  .cartao .valor.zero { color: var(--texto-suave); font-size: 20px; }
+  .cartao .explicacao { font-size: 12px; color: var(--texto-suave); margin-top: 6px; }
+
+  .aviso {
+    background: var(--alerta-fundo); border: 1px solid var(--alerta-borda); color: var(--alerta);
+    border-radius: 10px; padding: 14px 16px; font-size: 13px; margin: 24px 0;
+  }
+
+  .rodape-nota { font-size: 12px; color: var(--texto-suave); margin-top: 30px; text-align: center; }
+  a.link-oficial { color: var(--rio-escuro); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Governo Federal &middot; Repasses para Nhamundá</p>
+  <h1>Repasses Federais</h1>
+  <p>Recursos que a União transferiu, gastou diretamente ou pagou como benefício a cidadãos de Nhamundá, coletados automaticamente do Portal da Transparência do Governo Federal.</p>
+</header>
+
+<main>
+
+  <div id="conteudo">
+    <div class="carregando">Carregando dados...</div>
+  </div>
+
+  <div class="aviso">
+    Por enquanto, só temos o dado do <strong>ano corrente</strong> — o portal federal esconde os anos anteriores atrás de um recurso que só funciona com clique manual, e ainda estamos trabalhando pra automatizar isso também.
+  </div>
+
+  <p class="rodape-nota">
+    Dados coletados automaticamente direto do
+    <a class="link-oficial" href="https://portaldatransparencia.gov.br/localidades/1303007-nhamunda" target="_blank" rel="noopener">Portal da Transparência do Governo Federal</a>.
+  </p>
+
+</main>
+
+<script>
+const URL_DADOS = "https://raw.githubusercontent.com/joaodiasbingo/transparencia-am/main/data/federal-resumo-nhamunda.json";
+
+function formatarMoeda(valor) {
+  return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+async function carregar() {
+  const conteudo = document.getElementById("conteudo");
+  try {
+    const resposta = await fetch(URL_DADOS);
+    if (!resposta.ok) throw new Error("Não foi possível carregar os dados.");
+    const registros = await resposta.json();
+
+    if (!registros || registros.length === 0) {
+      conteudo.innerHTML = '<div class="vazio">Ainda não há dados disponíveis. Volte em breve.</div>';
+      return;
+    }
+
+    let html = "";
+    registros
+      .sort((a, b) => b.ano - a.ano)
+      .forEach((r) => {
+        html += `<h2 style="margin:28px 0 4px;color:var(--rio-escuro);">${r.ano}</h2>`;
+        html += `<div class="cartoes">`;
+
+        html += `
+          <div class="cartao">
+            <div class="rotulo">Recursos transferidos ao município</div>
+            <div class="valor">${r.recursosTransferidosAoMunicipio != null ? formatarMoeda(r.recursosTransferidosAoMunicipio) : "-"}</div>
+            <div class="explicacao">Dinheiro que a União repassou diretamente para a prefeitura administrar (FPM, convênios, emendas etc.)</div>
+          </div>
+        `;
+
+        const gastos = r.gastosDiretos;
+        html += `
+          <div class="cartao">
+            <div class="rotulo">Gastos diretos do Governo Federal no município</div>
+            <div class="valor ${gastos === 0 ? "zero" : ""}">${gastos != null ? (gastos === 0 ? "Nenhum registrado" : formatarMoeda(gastos)) : "-"}</div>
+            <div class="explicacao">Ações executadas diretamente por órgãos federais dentro do município (não passa pela prefeitura)</div>
+          </div>
+        `;
+
+        html += `
+          <div class="cartao">
+            <div class="rotulo">Benefícios pagos a cidadãos</div>
+            <div class="valor">${r.beneficiosCidadao != null ? formatarMoeda(r.beneficiosCidadao) : "-"}</div>
+            <div class="explicacao">Programas como Bolsa Família, BPC e outros, pagos direto à população de Nhamundá</div>
+          </div>
+        `;
+
+        html += `</div>`;
+      });
+
+    conteudo.innerHTML = html;
+  } catch (erro) {
+    conteudo.innerHTML = `<div class="vazio">Não foi possível carregar os dados agora. Tente novamente em instantes.</div>`;
+    console.error(erro);
+  }
+}
+
+carregar();
+</script>
+
+</body>
+</html>
