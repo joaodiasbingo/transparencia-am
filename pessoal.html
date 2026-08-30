@@ -27,6 +27,7 @@
   }
   .mes-card.tem-detalhe:hover { border-color: var(--rio); }
   .mes-card .rotulo-mes { font-weight: 700; font-size: 15px; }
+  .mes-card .contagem { font-size: 12px; color: var(--texto-suave); margin-top: 2px; }
   .mes-card .valor-mes { font-weight: 800; font-size: 16px; color: var(--verde-valor); white-space: nowrap; }
   .mes-bloco { margin-bottom: 10px; }
   .item-simples { background: var(--card); border: 1px solid var(--borda); border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; font-size: 13px; color: var(--texto); }
@@ -45,6 +46,7 @@
   }
   .lancamento { display: flex; justify-content: space-between; gap: 10px; padding: 8px 12px; border-bottom: 1px solid #eee6d8; font-size: 12px; }
   .lancamento .credor { color: var(--texto); }
+  .lancamento .data-lanc { color: var(--texto-suave); font-size: 11px; }
   .lancamento .valor-lanc { font-weight: 700; color: var(--verde-valor); white-space: nowrap; }
 </style>
 </head>
@@ -53,17 +55,17 @@
 <header>
   <p class="eyebrow">Prefeitura Municipal de Nhamundá &middot; Amazonas</p>
   <h1>Pessoal e Diárias</h1>
-  <p>Folha de pagamento dos servidores e diárias pagas por viagens/deslocamentos a serviço da prefeitura. Clique num mês pra ver o valor de cada servidor.</p>
+  <p>Folha de pagamento dos servidores e diárias pagas por viagens/deslocamentos a serviço da prefeitura. Clique num mês pra ver o detalhamento com busca por nome.</p>
 </header>
 
 <main>
 
   <h2 class="secao">Folha de Pagamento</h2>
-  <div class="secao-subtitulo">Total bruto pago em salários, mês a mês</div>
+  <div class="secao-subtitulo">Total bruto pago em salários, mês a mês - clique para ver cada servidor</div>
   <div id="folha"><div class="carregando">Carregando...</div></div>
 
   <h2 class="secao">Diárias Pagas</h2>
-  <div class="secao-subtitulo">Viagens e deslocamentos de servidores a serviço</div>
+  <div class="secao-subtitulo">Viagens e deslocamentos de servidores a serviço - clique para ver cada diária</div>
   <div id="diarias"><div class="carregando">Carregando...</div></div>
 
   <h2 class="secao">Tabela de Valores de Diárias</h2>
@@ -84,14 +86,19 @@ function formatarMoeda(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
-// Extrai o nome do servidor de dentro da linha bruta da folha:
-// "1441 - 0 JOSE DA SILVA MIRANDA R$ 1.953,30 ..."
+// Nome do servidor na Folha: "1441 - 0 JOSE DA SILVA MIRANDA R$ 1.953,30 ..."
 function extrairNomeServidor(linha) {
   const m = linha.match(/^\d+\s*-\s*\d+\s+([A-ZÀ-ÿ][A-ZÀ-ÿ.\s]*?)\s+R\$/);
   return m ? m[1].trim() : linha;
 }
 
-function renderizarLancamentos(lancamentos, containerId) {
+// Nome do servidor na Diária: "... 33901400000000 FELIPPE DE LUCENA" (código de natureza de 14 dígitos, seguido do nome)
+function extrairNomeDiaria(linha) {
+  const m = linha.match(/\d{14}\s+([A-ZÀ-ÿ][A-ZÀ-ÿ\s]*)$/);
+  return m ? m[1].trim() : linha;
+}
+
+function renderizarLancamentos(lancamentos, containerId, extrator, mostrarData) {
   const alvo = document.getElementById(containerId);
   const termo = (document.getElementById("busca-" + containerId)?.value || "").toLowerCase();
   const filtrados = lancamentos.filter((l) => !termo || l.linha.toLowerCase().includes(termo));
@@ -100,20 +107,27 @@ function renderizarLancamentos(lancamentos, containerId) {
     .map(
       (l) => `
         <div class="lancamento">
-          <div class="credor">${extrairNomeServidor(l.linha)}</div>
+          <div>
+            <div class="credor">${extrator(l.linha)}</div>
+            ${mostrarData && l.data ? `<div class="data-lanc">${l.data}</div>` : ""}
+          </div>
           <div class="valor-lanc">${formatarMoeda(l.valor)}</div>
         </div>
       `
     )
     .join("");
-  alvo.querySelector(".lista-lancamentos").innerHTML = listaHtml;
+  const avisoLimite =
+    filtrados.length > 2000
+      ? `<div style="padding:8px 12px;font-size:11px;color:#8a6a2f;">Mostrando os 2000 primeiros de ${filtrados.length}. Use a busca para refinar.</div>`
+      : "";
+  alvo.querySelector(".lista-lancamentos").innerHTML = listaHtml + avisoLimite;
 }
 
 function alternarDetalhe(containerId) {
   document.getElementById(containerId).classList.toggle("aberto");
 }
 
-async function carregarGenerico(arquivo, elementoId, metodoConfiavel, comDetalhe) {
+async function carregarGenerico(arquivo, elementoId, metodoConfiavel, comDetalhe, extrator, mostrarData, placeholderBusca) {
   const alvo = document.getElementById(elementoId);
   try {
     const resposta = await fetch(BASE + arquivo);
@@ -127,26 +141,32 @@ async function carregarGenerico(arquivo, elementoId, metodoConfiavel, comDetalhe
 
     let html = "";
     let indice = 0;
+    const chaveGlobal = `__lancamentos_${elementoId}`;
+    window[chaveGlobal] = window[chaveGlobal] || {};
+
     registros.forEach((r) => {
       const periodo = [r["Mês"], r["Exercício"]].filter(Boolean).join(" de ");
       const ehConfiavel = metodoConfiavel && r.metodoDeCalculo === metodoConfiavel && typeof r.somaAproximada === "number";
 
       if (ehConfiavel) {
         const temDetalhe = comDetalhe && r.lancamentos && r.lancamentos.length > 0;
-        const idDetalhe = `detalhe-folha-${elementoId}-${indice}`;
+        const idDetalhe = `detalhe-${elementoId}-${indice}`;
         indice++;
 
         html += `
           <div class="mes-bloco">
             <div class="mes-card ${temDetalhe ? "tem-detalhe" : ""}" ${temDetalhe ? `onclick="alternarDetalhe('${idDetalhe}')"` : ""}>
-              <div class="rotulo-mes">${periodo || "-"} ${temDetalhe ? "▾" : ""}</div>
+              <div>
+                <div class="rotulo-mes">${periodo || "-"} ${temDetalhe ? "▾" : ""}</div>
+                ${temDetalhe ? `<div class="contagem">${r.lancamentos.length} registro(s)</div>` : ""}
+              </div>
               <div class="valor-mes">${formatarMoeda(r.somaAproximada)}</div>
             </div>
             ${
               temDetalhe
                 ? `
               <div class="painel-detalhe" id="${idDetalhe}">
-                <input type="text" class="campo-busca-detalhe" id="busca-${idDetalhe}" placeholder="Buscar por servidor..." oninput="renderizarLancamentos(window.__lancamentosFolha['${idDetalhe}'], '${idDetalhe}')">
+                <input type="text" class="campo-busca-detalhe" id="busca-${idDetalhe}" placeholder="${placeholderBusca}" oninput="renderizarLancamentos(window['${chaveGlobal}']['${idDetalhe}'], '${idDetalhe}', ${extrator.name}, ${mostrarData})">
                 <div class="lista-lancamentos"></div>
               </div>
             `
@@ -155,10 +175,7 @@ async function carregarGenerico(arquivo, elementoId, metodoConfiavel, comDetalhe
           </div>
         `;
 
-        if (temDetalhe) {
-          window.__lancamentosFolha = window.__lancamentosFolha || {};
-          window.__lancamentosFolha[idDetalhe] = r.lancamentos;
-        }
+        if (temDetalhe) window[chaveGlobal][idDetalhe] = r.lancamentos;
       } else {
         html += `
           <div class="item-simples">
@@ -171,20 +188,18 @@ async function carregarGenerico(arquivo, elementoId, metodoConfiavel, comDetalhe
 
     alvo.innerHTML = html;
 
-    if (window.__lancamentosFolha) {
-      Object.keys(window.__lancamentosFolha).forEach((id) => {
-        if (id.startsWith(`detalhe-folha-${elementoId}-`)) renderizarLancamentos(window.__lancamentosFolha[id], id);
-      });
-    }
+    Object.keys(window[chaveGlobal]).forEach((id) => {
+      renderizarLancamentos(window[chaveGlobal][id], id, extrator, mostrarData);
+    });
   } catch (erro) {
     alvo.innerHTML = '<div class="vazio">Não foi possível carregar os dados agora.</div>';
     console.error(erro);
   }
 }
 
-carregarGenerico("recursos-humanos-folha-de-pagamento.json", "folha", "folha_pagamento", true);
-carregarGenerico("diarias-listagem-de-diarias.json", "diarias", null, false);
-carregarGenerico("diarias-tabela-de-valores-de-diarias.json", "tabela-diarias", null, false);
+carregarGenerico("recursos-humanos-folha-de-pagamento.json", "folha", "folha_pagamento", true, extrairNomeServidor, false, "Buscar por nome do servidor...");
+carregarGenerico("diarias-listagem-de-diarias.json", "diarias", "despesas_empenhadas", true, extrairNomeDiaria, true, "Buscar por nome do servidor...");
+carregarGenerico("diarias-tabela-de-valores-de-diarias.json", "tabela-diarias", null, false, extrairNomeDiaria, false, "");
 </script>
 
 </body>
