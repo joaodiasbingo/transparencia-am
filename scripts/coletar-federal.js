@@ -23,8 +23,11 @@ async function lerValoresDaPagina(pagina) {
     function extrair(rotulo) {
       const indice = texto.indexOf(rotulo);
       if (indice === -1) return null;
-      const trecho = texto.slice(indice, indice + 250);
-      const match = trecho.match(/R\$\s*([\d.]+,\d{2})/);
+      const trecho = texto.slice(indice, indice + 400);
+      // Exige separador de milhar (pelo menos um ".XXX" antes da vírgula) -
+      // isso evita pegar por engano valores resumidos de gráfico (tipo
+      // "R$ 80,71" que na verdade quer dizer "80,71 milhões").
+      const match = trecho.match(/R\$\s*(\d{1,3}(?:\.\d{3})+,\d{2})/);
       return match ? match[1] : null;
     }
     return {
