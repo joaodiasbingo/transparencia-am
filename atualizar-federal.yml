@@ -1,0 +1,32 @@
+name: Atualizar repasses federais de Nhamundá
+
+on:
+  schedule:
+    - cron: "0 12 6 * *"
+  workflow_dispatch: {}
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código do repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar o Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar as dependências
+        run: npm install
+
+      - name: Coletar os repasses federais
+        run: node scripts/coletar-federal.js
+
+      - name: Salvar os dados atualizados no repositório
+        run: |
+          git config user.name "robo-transparencia"
+          git config user.email "robo-transparencia@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Atualização automática dos repasses federais"
+          git push
