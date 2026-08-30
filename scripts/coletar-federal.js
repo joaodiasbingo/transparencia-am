@@ -57,25 +57,24 @@ async function main() {
   try {
     await pagina.goto(URL_RESUMO, { waitUntil: "networkidle2", timeout: 60000 });
 
-    // Espera bem mais tempo dessa vez, e confere se o texto principal já
-    // apareceu antes de seguir - portais do governo costumam ser lentos.
+    // Espera bem mais tempo dessa vez, e confere se o VALOR (não só o
+    // rótulo) já apareceu antes de seguir - o número às vezes demora um
+    // pouco mais pra carregar do que o texto ao redor dele.
     let carregou = false;
-    for (let tentativa = 0; tentativa < 10; tentativa++) {
+    let valoresAtuais = { transferidoAoMunicipio: null, gastosDiretos: null, beneficiosCidadao: null };
+    for (let tentativa = 0; tentativa < 15; tentativa++) {
       await new Promise((resolve) => setTimeout(resolve, 2000));
-      const temTexto = await pagina.evaluate(() =>
-        document.body.innerText.includes("Recursos transferidos apenas ao município")
-      );
-      if (temTexto) {
+      valoresAtuais = await lerValoresDaPagina(pagina);
+      if (valoresAtuais.transferidoAoMunicipio || valoresAtuais.gastosDiretos || valoresAtuais.beneficiosCidadao) {
         carregou = true;
         break;
       }
     }
-    console.log(`Página carregou o conteúdo principal? ${carregou}`);
+    console.log(`Valor encontrado depois de esperar? ${carregou}`);
 
     // Sempre salva o ano padrão (o que a página mostra ao abrir), mesmo que
     // as abas de outros anos não sejam encontradas depois.
     const anoAtual = new Date().getFullYear().toString();
-    const valoresAtuais = await lerValoresDaPagina(pagina);
     console.log(`Ano padrão (${anoAtual}): ${JSON.stringify(valoresAtuais)}`);
 
     if (valoresAtuais.transferidoAoMunicipio || valoresAtuais.gastosDiretos || valoresAtuais.beneficiosCidadao) {
