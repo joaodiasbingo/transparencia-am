@@ -2,19 +2,26 @@
   {
     "_linhaIndice": 0,
     "Exercício": "2026",
+    "Mês": "Agosto",
+    "Descrição": "Cotação de Preços - Aviso - Fornecimento de Passagens Fluviais de Lancha Expresso e Barco de Linha - DOM",
+    "Anexos": ""
+  },
+  {
+    "_linhaIndice": 1,
+    "Exercício": "2026",
     "Mês": "Maio",
     "Descrição": "Cotação de Preços - Aviso - Materiais de Construção, Elétricos, Hidráulicos, Ferramentas, Equipamentos e Materiais Correlatos - DOM",
     "Anexos": ""
   },
   {
-    "_linhaIndice": 1,
+    "_linhaIndice": 2,
     "Exercício": "2026",
     "Mês": "Março",
     "Descrição": "Cotação Prévia - Aviso - Contratação de Serviço de Link de Acesso a Internet com Instalação Manutenção e Suporte Técnico - DOM",
     "Anexos": ""
   },
   {
-    "_linhaIndice": 2,
+    "_linhaIndice": 3,
     "Exercício": "2022",
     "Mês": "Agosto",
     "Descrição": "Termo de Fomento Nº 001-2021 - 2º Termo Aditivo - Serviços de Apoio à Micro e Pequenas Empresas",
@@ -25,7 +32,7 @@
     "metodoDeCalculo": "aproximado_generico"
   },
   {
-    "_linhaIndice": 3,
+    "_linhaIndice": 4,
     "Exercício": "2022",
     "Mês": "Agosto",
     "Descrição": "Termo de Aquisição por Desapropriação Amigável",
