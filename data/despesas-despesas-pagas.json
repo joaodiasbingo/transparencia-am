@@ -2,256 +2,176 @@
   {
     "_linhaIndice": 0,
     "Exercício": "2026",
-    "Mês": "Junho",
-    "Descrição": "Listagem de Despesas Pagas - Junho de 2026",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/06/despesas/despesas_pagas/edition20260811103422-frucIH.txt",
-    "somaAproximada": 22460405.12,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Agosto",
+    "Descrição": "Listagem de Despesa Pagas - Agosto de 2026",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 1,
     "Exercício": "2026",
-    "Mês": "Maio",
-    "Descrição": "Listagem de Despesas Pagas - Maio de 2026",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/05/despesas/despesas_pagas/edition20260729112631-jEePib.txt",
-    "somaAproximada": 13329093.7,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Julho",
+    "Descrição": "Listagem de Despesas Pagas - Julho de 2026",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 2,
     "Exercício": "2026",
-    "Mês": "Março",
-    "Descrição": "Listagem de Despesas Pagas - Março de 2026",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/03/despesas/despesas_pagas/edition20260609140820-GF3C7O.txt",
-    "somaAproximada": 17598131.81,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Junho",
+    "Descrição": "Listagem de Despesas Pagas - Junho de 2026",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 3,
     "Exercício": "2026",
-    "Mês": "Fevereiro",
-    "Descrição": "Listagem de Despesas Pagas - Fevereiro de 2026",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/02/despesas/despesas_pagas/edition20260514094517-NkZc0L.txt",
-    "somaAproximada": 10318532.65,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Maio",
+    "Descrição": "Listagem de Despesas Pagas - Maio de 2026",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 4,
     "Exercício": "2026",
-    "Mês": "Janeiro",
-    "Descrição": "Listagem de Despesas Pagas - Janeiro de 2026",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2026/01/despesas/despesas_pagas/edition20260514090127-IuvXUj.txt",
-    "somaAproximada": 12662878.96,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Março",
+    "Descrição": "Listagem de Despesas Pagas - Março de 2026",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 5,
-    "Exercício": "2025",
-    "Mês": "Dezembro",
-    "Descrição": "Listagem de Despesas Pagas - Dezembro de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/12/despesas/despesas_pagas/edition20260410103356-yqZftQ.txt",
-    "somaAproximada": 21980251.73,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Exercício": "2026",
+    "Mês": "Fevereiro",
+    "Descrição": "Listagem de Despesas Pagas - Fevereiro de 2026",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 6,
-    "Exercício": "2025",
-    "Mês": "Novembro",
-    "Descrição": "Listagem de Despesas Pagas - Novembro de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/11/despesas/despesas_pagas/edition20260204105720-aC0f8G.txt",
-    "somaAproximada": 16517173.31,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Exercício": "2026",
+    "Mês": "Janeiro",
+    "Descrição": "Listagem de Despesas Pagas - Janeiro de 2026",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 7,
     "Exercício": "2025",
-    "Mês": "Outubro",
-    "Descrição": "Listagem de Despesas Pagas - Outubro de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/10/despesas/despesas_pagas/edition20251222094301-LWOYRs.txt",
-    "somaAproximada": 19065141.81,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Dezembro",
+    "Descrição": "Listagem de Despesas Pagas - Dezembro de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 8,
     "Exercício": "2025",
-    "Mês": "Setembro",
-    "Descrição": "Listagem de Despesas Pagas - Setembro de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/09/despesas/despesas_pagas/edition20251202115707-DXqzVV.txt",
-    "somaAproximada": 9217021.52,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Novembro",
+    "Descrição": "Listagem de Despesas Pagas - Novembro de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 9,
     "Exercício": "2025",
-    "Mês": "Agosto",
-    "Descrição": "Listagem de Despesas Pagas - Agosto de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/08/despesas/despesas_pagas/edition20251028084119-5TIb55.txt",
-    "somaAproximada": 10705585.99,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Outubro",
+    "Descrição": "Listagem de Despesas Pagas - Outubro de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 10,
     "Exercício": "2025",
-    "Mês": "Julho",
-    "Descrição": "Listagem de Despesas Pagas - Julho de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/07/despesas/despesas_pagas/edition20251002165620-4dnGQx.txt",
-    "somaAproximada": 13010666.3,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Setembro",
+    "Descrição": "Listagem de Despesas Pagas - Setembro de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 11,
     "Exercício": "2025",
-    "Mês": "Junho",
-    "Descrição": "Listagem de Despesas Pagas - Junho de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/06/despesas/despesas_pagas/edition20251002164402-LfLH9n.txt",
-    "somaAproximada": 11226602.36,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Agosto",
+    "Descrição": "Listagem de Despesas Pagas - Agosto de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 12,
     "Exercício": "2025",
-    "Mês": "Maio",
-    "Descrição": "Listagem de Despesas Pagas - Maio de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/05/despesas/despesas_pagas/edition20251002163709-nwIId5.txt",
-    "somaAproximada": 12137765.88,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Julho",
+    "Descrição": "Listagem de Despesas Pagas - Julho de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 13,
     "Exercício": "2025",
-    "Mês": "Abril",
-    "Descrição": "Listagem de Despesas Pagas - Abril de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/04/despesas/despesas_pagas/edition20250729075546-Xub7Yj.txt",
-    "somaAproximada": 12034180.6,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Junho",
+    "Descrição": "Listagem de Despesas Pagas - Junho de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 14,
     "Exercício": "2025",
-    "Mês": "Março",
-    "Descrição": "Listagem de Despesas Pagas - Março de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/03/despesas/despesas_pagas/edition20250728165617-DBTWg6.txt",
-    "somaAproximada": 12438251.49,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Maio",
+    "Descrição": "Listagem de Despesas Pagas - Maio de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 15,
     "Exercício": "2025",
-    "Mês": "Fevereiro",
-    "Descrição": "Listagem de Despesas Pagas - Fevereiro de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/02/despesas/despesas_pagas/edition20250728164100-BfNZEk.txt",
-    "somaAproximada": 11922432.01,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Abril",
+    "Descrição": "Listagem de Despesas Pagas - Abril de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 16,
     "Exercício": "2025",
-    "Mês": "Janeiro",
-    "Descrição": "Listagem de Despesas Pagas - Janeiro de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/01/despesas/despesas_pagas/edition20250728163708-MA8Bmn.txt",
-    "somaAproximada": 11936899.23,
-    "quantidadeDeValoresEncontrados": 1,
-    "metodoDeCalculo": "transferencias_recebidas"
+    "Mês": "Março",
+    "Descrição": "Listagem de Despesas Pagas - Março de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 17,
     "Exercício": "2025",
-    "Mês": "Janeiro",
-    "Descrição": "Listagem de Despesas Pagas- Janeiro de 2025",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2025/01/despesas/despesas_pagas/edition20250602141019-E2GUpc.txt",
-    "somaAproximada": 0,
-    "quantidadeDeValoresEncontrados": 0,
-    "metodoDeCalculo": "aproximado_generico"
+    "Mês": "Fevereiro",
+    "Descrição": "Listagem de Despesas Pagas - Fevereiro de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 18,
-    "Exercício": "2024",
-    "Mês": "Dezembro",
-    "Descrição": "Listagem de Despesas Pagas - Dezembro de 2024",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/12/despesas/despesas_pagas/edition20250320104242-IJh8rv.txt",
-    "somaAproximada": 160124064.64,
-    "quantidadeDeValoresEncontrados": 4919,
-    "metodoDeCalculo": "aproximado_generico"
+    "Exercício": "2025",
+    "Mês": "Janeiro",
+    "Descrição": "Listagem de Despesas Pagas - Janeiro de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 19,
-    "Exercício": "2024",
-    "Mês": "Novembro",
-    "Descrição": "Listagem de Despesas Pagas - Novembro de 2024",
-    "Anexos": "+1",
-    "linkAnexo": "https://space-dd1.sfo2.digitaloceanspaces.com/prod/transparencia/pm-nhamunda/2024/11/despesas/despesas_pagas/edition20250320104250-dMO9Lw.txt",
-    "somaAproximada": 103953243.36,
-    "quantidadeDeValoresEncontrados": 4390,
-    "metodoDeCalculo": "aproximado_generico"
+    "Exercício": "2025",
+    "Mês": "Janeiro",
+    "Descrição": "Listagem de Despesas Pagas- Janeiro de 2025",
+    "Anexos": "+1"
   },
   {
     "_linhaIndice": 20,
+    "Exercício": "2024",
+    "Mês": "Dezembro",
+    "Descrição": "Listagem de Despesas Pagas - Dezembro de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 21,
+    "Exercício": "2024",
+    "Mês": "Novembro",
+    "Descrição": "Listagem de Despesas Pagas - Novembro de 2024",
+    "Anexos": "+1"
+  },
+  {
+    "_linhaIndice": 22,
     "Exercício": "2024",
     "Mês": "Outubro",
     "Descrição": "Listagem de Despesas Pagas - Outubro de 2024",
     "Anexos": "+1"
   },
   {
-    "_linhaIndice": 21,
+    "_linhaIndice": 23,
     "Exercício": "2024",
     "Mês": "Setembro",
     "Descrição": "Listagem de Despesas Pagas - Setembro de 2024",
     "Anexos": "+1"
   },
   {
-    "_linhaIndice": 22,
+    "_linhaIndice": 24,
     "Exercício": "2024",
     "Mês": "Agosto",
     "Descrição": "Listagem de Despesas Pagas - Agosto de 2024",
-    "Anexos": "+1"
-  },
-  {
-    "_linhaIndice": 23,
-    "Exercício": "2024",
-    "Mês": "Julho",
-    "Descrição": "Listagem de Despesas Pagas - Julho de 2024",
-    "Anexos": "+1"
-  },
-  {
-    "_linhaIndice": 24,
-    "Exercício": "2024",
-    "Mês": "Junho",
-    "Descrição": "Listagem de Despesas Pagas - Junho de 2024",
     "Anexos": "+1"
   }
 ]
